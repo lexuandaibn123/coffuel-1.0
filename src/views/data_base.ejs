@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Base</title>
+    <link rel="stylesheet" href="/css/data_base.css" />
+  </head>
+  <body>
+    <div class="banner">
+      <div class="add_user">
+        <fieldset>
+          <legend>Add account</legend>
+          <form method="post" action="/admin/add_item">
+            <div class="input_item">
+              <label for="user_name">Tài khoản: </label>
+              <input type="text" name="user_name" />
+            </div>
+            <div class="input_item">
+              <label for="user_password">Mật khẩu: </label>
+              <input type="text" name="user_password" />
+            </div>
+            <div class="input_item">
+              <label for="user_email">Email: </label>
+              <input type="email" name="user_email" />
+            </div>
+            <button class="button_add">Gửi</button>
+          </form>
+        </fieldset>
+      </div>
+      <div class="read_user">
+        <table id="table_users">
+          <tr>
+            <th class="id">ID</th>
+            <th class="user_name">User_name</th>
+            <th class="user_password">User_password</th>
+            <th class="user_email">User_email</th>
+            <th class="actions">Actions</th>
+          </tr>
+          <% for(let i = 0; i < list_users.length; i++) { %>
+          <tr>
+            <td><%= list_users[i].id %></td>
+            <td><%= list_users[i].user_name %></td>
+            <td><%= list_users[i].user_password %></td>
+            <td><%= list_users[i].user_email %></td>
+            <td><button>Edit</button><button>Delete</button></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
