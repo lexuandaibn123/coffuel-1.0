@@ -15,14 +15,27 @@
     }
   </style>
   <body>
-    <form method="POST">
+    <form id="form">
       <label for="user_name">Tài khoản: </label>
-      <input type="text" name="user_name" required autocomplete="off" />
+      <input
+        type="text"
+        name="user_name"
+        id="name"
+        required
+        autocomplete="off"
+      />
       <br />
       <label for="password">Mật khẩu: </label>
-      <input type="password" name="password" required autocomplete="off" />
+      <input
+        type="password"
+        name="user_password"
+        id="password"
+        required
+        autocomplete="off"
+      />
       <br />
-      <button>Send</button>
+      <button id="send">Send</button>
     </form>
+    <script src="/javascript/form_account_admin.js" type="module"></script>
   </body>
 </html>
