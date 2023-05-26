@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+table {
+  margin-top: 3vh;
+  border-collapse: collapse;
+}
+tr:hover {
+  background-color: rgba(152, 255, 188, 0.4);
+}
+th {
+  background-color: greenyellow;
+  height: 5vh;
+}
+td {
+  height: 4vh;
+  text-align: center;
+}
+tr,
+th,
+td {
+  border: 1px solid black;
+}
+.id {
+  width: 4vw;
+}
+.user_name,
+.user_password,
+.user_email {
+  width: 18vw;
+}
+
+.user_tel,
+.actions {
+  width: 10vw;
+}
+form {
+  display: inline-block;
+}
+button {
+  width: 3vw;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  cursor: pointer;
+}
+.button_add {
+  width: 10vw;
+  border-radius: 5vh;
+  height: 5vh;
+  font-size: 3vh;
+  cursor: pointer;
+}
+.button_add:hover {
+  background-color: greenyellow;
+}
+
+/* narbar */
+
+.header {
+  height: 10vh;
+  display: flex;
+  background-color: black;
+  margin-bottom: 2vh;
+}
+.header_item {
+  width: 33.33%;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  font-size: 5vh;
+  padding-top: 2vh;
+}
+#Users {
+  background-color: green;
+}

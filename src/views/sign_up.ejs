@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="/css/sign_up.css" />
+  </head>
+  <body>
+    <div class="banner">
+      <div class="div_form">
+        <div class="logo"></div>
+        <form id="form">
+          <p id="message"></p>
+          <input
+            name="user_name"
+            type="text"
+            required
+            id="user_name"
+            class="input"
+            pattern="[A-Za-z0-9@]{1,20}"
+            placeholder="Tên tài khoản"
+          />
+          <br />
+          <p id="message_password"></p>
+          <input
+            name="user_password"
+            type="text"
+            required
+            id="user_password"
+            class="input"
+            pattern="[A-Za-z0-9@]{1,20}"
+            placeholder="Mật khẩu"
+          />
+          <br />
+          <input
+            name="user_password_again"
+            type="text"
+            required
+            id="user_password_again"
+            class="input"
+            placeholder="Nhập lại mật khẩu"
+          />
+          <br />
+          <input
+            name="user_email"
+            type="email"
+            required
+            id="user_email"
+            class="input"
+            placeholder="Email"
+          />
+          <br />
+          <input
+            name="user_tel"
+            type="tel"
+            required
+            id="user_tel"
+            class="input"
+            placeholder="Số điện thoại"
+          />
+          <br />
+          <div class="button_sign_up">
+            <button id="check" type="button">Check</button>
+            <button id="sign_up">Đăng ký</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="/javascript/sign_up.js"></script>
+  </body>
+</html>

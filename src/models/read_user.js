@@ -2,7 +2,7 @@ import { getAllUsers } from "../services/CRUDService.js";
 
 const read_user = async (req, res) => {
   let results = await getAllUsers();
-  res.render("data_base", {
+  res.render("read_database", {
     list_users: results,
   });
 };

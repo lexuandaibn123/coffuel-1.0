@@ -1,0 +1,17 @@
+body {
+  padding-left: 10vh;
+}
+div {
+  margin-bottom: 1vh;
+}
+button {
+  height: 5vh;
+  width: 8vw;
+  margin-left: 20vh;
+  border-radius: 2vh;
+  font-size: 2.5vh;
+  cursor: pointer;
+}
+button:hover {
+  background-color: greenyellow;
+}

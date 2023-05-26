@@ -15,7 +15,7 @@ document.getElementById("send").addEventListener("click", () => {
   xhttp.onload = function () {
     const text = this.responseText;
     setCookie("techstart_coofuel", text, 0.5);
-    window.location.assign("/admin/CRUD_database"); // do khi res.send() không thể next nên dùng dòng này để GET
+    window.location.assign("/admin/read_database_user"); // do khi res.send() không thể next nên dùng dòng này để GET
   };
   xhttp.open("POST", "");
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

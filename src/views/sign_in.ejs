@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="/css/sign_in.css" />
+  </head>
+  <body>
+    <div class="banner">
+      <div class="div_form">
+        <div class="logo"></div>
+        <form id="form">
+          <input
+            name="user_name"
+            type="text"
+            required
+            id="user_name"
+            class="input"
+            pattern="[A-Za-z0-9@]{1,20}"
+            placeholder="Tên tài khoản"
+          />
+          <br />     
+          <input
+            name="user_password"
+            type="text"
+            required
+            id="user_password"
+            class="input"
+            pattern="[A-Za-z0-9@]{1,20}"
+            placeholder="Mật khẩu"
+        >
+          <br />
+            <button>Đăng nhập</button>
+            <a href="/sign_up" class="sign_up">Đăng ký</a>
+        </form>
+      </div>
+    </div>
+      
+    </form>
+    <script type="module" src="/javascript/sign_in.js"></script>
+  </body>
+</html>

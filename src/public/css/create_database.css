@@ -1,0 +1,30 @@
+fieldset {
+  padding: 2vh;
+  width: 30vw;
+  padding-left: 4vh;
+  margin: 5vh;
+  position: relative;
+}
+.input_item {
+  margin-bottom: 1vh;
+}
+.button {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: space-around;
+}
+button {
+  width: 8vw;
+  height: 4vh;
+  font-size: 2vh;
+  border-radius: 2vw;
+  cursor: pointer;
+}
+button:hover {
+  background-color: greenyellow;
+}
+span {
+  position: absolute;
+  right: 6vh;
+  top: 0 !important;
+}

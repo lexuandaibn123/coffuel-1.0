@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Base</title>
+    <link rel="stylesheet" href="/css/create_database.css " />
+  </head>
+  <body>
+    <fieldset>
+      <legend>Add account</legend>
+      <form method="post" action="/admin/create_database" id="form">
+        <div class="input_item">
+          <label for="user_name">Tài khoản: </label>
+          <input
+            type="text"
+            name="user_name"
+            pattern="[A-Za-z0-9@]{1,20}"
+            id="user_name"
+            required
+          />
+          <span>
+            <p id="message"></p>
+          </span>
+        </div>
+        <div class="input_item">
+          <label for="user_password">Mật khẩu: </label>
+          <input
+            type="text"
+            name="user_password"
+            pattern="[A-Za-z0-9@]{1,20}"
+            required
+          />
+        </div>
+        <div class="input_item">
+          <label for="user_email">Email: </label>
+          <input type="email" name="user_email" required />
+        </div>
+        <div class="input_item">
+          <label for="user_tel">Số điện thoại: </label>
+          <input type="tel" name="user_tel" required />
+        </div>
+        <div class="button">
+          <button id="checkinput" type="button">Check_Input</button>
+          <button id="button_add">Gửi</button>
+        </div>
+      </form>
+    </fieldset>
+    <script type="module" src="/javascript/create_database.js"></script>
+  </body>
+</html>

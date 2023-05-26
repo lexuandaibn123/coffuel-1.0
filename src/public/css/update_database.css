@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding-left: 2vh;
+  padding-top: 1vh;
+}
+table {
+  margin-top: 3vh;
+  border-collapse: collapse;
+  margin-bottom: 5vh;
+}
+tr:hover {
+  background-color: rgba(152, 255, 188, 0.4);
+}
+th {
+  background-color: greenyellow;
+  height: 5vh;
+}
+td {
+  height: 4vh;
+  padding-left: 1vh;
+}
+tr,
+th,
+td {
+  border: 1px solid black;
+}
+.user_name,
+.user_password,
+.user_email {
+  width: 18vw;
+}
+.id {
+  width: 4vw;
+}
+.user_tel,
+.actions {
+  width: 10vw;
+}
+fieldset {
+  padding: 2vh;
+  width: 30vw;
+  padding-left: 4vh;
+}
+.input_item {
+  margin-bottom: 1vh;
+}
+legend {
+  font-size: 2vh;
+}
+button {
+  cursor: pointer;
+  margin-left: 18vw;
+  height: 4vh;
+  width: 5vw;
+  font-size: 2vh;
+  border-radius: 2vh;
+  margin-top: 2vh;
+}
+button:hover {
+  background-color: greenyellow;
+}
