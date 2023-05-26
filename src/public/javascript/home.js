@@ -86,3 +86,16 @@ button[0].addEventListener("click", () => {
 button[1].addEventListener("click", () => {
   next_img();
 });
+
+// các nút ở trang 1
+const element = [...document.getElementsByClassName("item_footer")];
+
+element[0].addEventListener("click", () => {
+  window.location.assign("/product");
+});
+element[1].addEventListener("click", () => {
+  window.location.assign("/cooperate");
+});
+element[2].addEventListener("click", () => {
+  window.location.assign("/cart");
+});

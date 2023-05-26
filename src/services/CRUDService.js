@@ -70,28 +70,6 @@ const checkUser = async (text) => {
   }
 };
 
-const getAllPurchases = async () => {
-  const [results, fields] = await pool.query("select * from Purchases_order");
-  return results;
-};
-
-const AddPurchase = async (user_name, user_password, user_email, user_tel) => {
-  const [results, fields] = await pool.query(
-    `INSERT INTO Users (user_name, user_password, user_email, user_tel) VALUES ('${user_name}', '${user_password}', '${user_email}', '${user_tel}')`
-  );
-};
-
-const getAllSales = async () => {
-  const [results, fields] = await pool.query("select * from Sales_order");
-  return results;
-};
-
-const AddSale = async (user_name, user_password, user_email, user_tel) => {
-  const [results, fields] = await pool.query(
-    `INSERT INTO Users (user_name, user_password, user_email, user_tel) VALUES ('${user_name}', '${user_password}', '${user_email}', '${user_tel}')`
-  );
-};
-
 export {
   getAllUsers,
   getUser,
@@ -101,8 +79,4 @@ export {
   checkAccount,
   checkUser,
   CompareAccount,
-  getAllPurchases,
-  AddPurchase,
-  getAllSales,
-  AddSale,
 };

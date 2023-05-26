@@ -1,15 +1,13 @@
 import { checkUser } from "../services/CRUDService.js";
 
 const check_signin = async (req, res, next) => {
-  let cookie = req.cookies.account_techstart_coofuel;
-  if (!cookie) {
-    res.redirect("/sign_in");
+  let cookie = req.cookies.account_techstart_coffuel;
+  if (!cookie) cookie = "";
+  let text = await checkUser(cookie.toString().slice(18));
+  if (text == "OK") {
+    next();
   } else {
-    if (checkUser(cookie.toString().slice(18)) == "OK") {
-      next();
-    } else {
-      next("Sign up failed");
-    }
+    res.redirect("/sign_in");
   }
 };
 

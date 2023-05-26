@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="/css/product.css" />
+  </head>
+  <body>
+    <div class="banner">
+      <h3 class="h3_header">
+        Quý khách có thể đặt mua sản phẩm của chúng tôi dưới đây
+      </h3>
+      <div class="content">
+        <p class="under_header">
+          Chúng tôi giao hàng trong khu vực nội thành suốt thời gian mở cửa
+        </p>
+        <p class="free">
+          Miễn phí ship áp dụng cho đơn hàng trong bán kính 3 km
+        </p>
+        <p class="title_form">Đặt mua sản phẩm online:</p>
+        <form class="form" method="post" action="/create_product">
+          <input
+            type="text"
+            placeholder="Họ và tên"
+            required
+            name="user_fullname"
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            placeholder="Địa chỉ"
+            required
+            name="user_address"
+            autocomplete="off"
+          />
+          <br />
+          <input
+            list="product"
+            placeholder="Sản phẩm"
+            required
+            name="user_product"
+          />
+          <datalist id="product">
+            <option value="Bã cà phê"></option>
+            <option value="Viên nén cà phê"></option>
+            <option value="Anh Hải"></option>
+          </datalist>
+          <input
+            type="text"
+            placeholder="Số lượng"
+            required
+            name="user_quantity"
+            autocomplete="off"
+          />
+          <br />
+          <input
+            type="tel"
+            placeholder="Số điện thoại"
+            required
+            name="user_tel"
+            autocomplete="off"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            name="user_email"
+            autocomplete="off"
+          />
+          <br />
+          <button>Đặt hàng</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

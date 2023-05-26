@@ -6,6 +6,7 @@ import { read_user } from "../models/read_user.js";
 import { update_user_id, update_user } from "../models/update_user.js";
 import { delete_user_id, delete_user } from "../models/delete_user.js";
 import { checkAccount } from "../services/CRUDService.js";
+import { read_product } from "../models/read_product.js";
 
 const router_admin = express.Router();
 
@@ -16,11 +17,9 @@ router_admin.post("/", login_admin);
 
 router_admin.get("/read_database_user", check_admin, read_user);
 
-router_admin.get("/read_database_purchase", check_admin, (req, res) => {
-  res.send("Hiện chưa update");
-});
+router_admin.get("/read_database_product", check_admin, read_product);
 
-router_admin.get("/read_database_sale", check_admin, (req, res) => {
+router_admin.get("/read_database_cooperate", check_admin, (req, res) => {
   res.send("Hiện chưa update");
 });
 

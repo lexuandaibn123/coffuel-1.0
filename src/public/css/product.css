@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  background-image: url("/images/anh_ba_coffee.jpg");
+  background-position: center;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+.banner {
+  margin-top: 10vh;
+  width: 53vw;
+  height: 70vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 3vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+.h3_header {
+  font-size: 5vh;
+}
+.free {
+  color: red;
+  font-weight: 800;
+}
+.content {
+  margin-left: 8vw;
+}
+input {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-left: 1vw;
+  color: white;
+  height: 4vh;
+  width: 16vw;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+}
+button {
+  height: 4vh;
+  width: 8vw;
+  background-color: red;
+  color: white;
+  border-radius: 1vh;
+  margin-left: 28vw;
+  cursor: pointer;
+  box-shadow: 0 1px 1px 0 white;
+  font-size: 2vh;
+  font-weight: 600;
+}
+button:active {
+  transform: translateY(0.5);
+  box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.5);
+}
+p {
+  font-size: 2.4vh;
+}

@@ -1,7 +1,7 @@
-const Products = document.getElementById("Products");
+const Users = document.getElementById("Users");
 const Cooperates = document.getElementById("Cooperates");
-Products.addEventListener("click", () => {
-  window.location.assign("/admin/read_database_product");
+Users.addEventListener("click", () => {
+  window.location.assign("/admin/read_database_user");
 });
 Cooperates.addEventListener("click", () => {
   window.location.assign("/admin/read_database_cooperate");

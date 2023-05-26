@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cooperate</title>
+    <link rel="stylesheet" href="/css/cooperate.css" />
+  </head>
+  <body>
+    <img class="logo" src="/images/doi_tac.png" />
+    <div class="content">
+      <h3>Chào mừng bạn đến với chương trình hợp tác của chúng tôi!</h3>
+      <p>
+        Chúng tôi rất vui mừng khi bạn muốn trở thành đối tác của chúng tôi.
+      </p>
+      <form id="form" action="/create_cooperate" method="post">
+        <input
+          type="text"
+          class="input"
+          placeholder="Tên đại diện"
+          required
+          autocomplete="off"
+          name="user_fullname"
+        />
+        <input
+          type="text"
+          class="input"
+          placeholder="Tên công ty / Cửa hàng"
+          required
+          autocomplete="off"
+          name="user_company"
+        />
+        <br />
+        <input
+          type="tel"
+          class="input"
+          placeholder="Số điện thoại"
+          required
+          autocomplete="off"
+          name="user_tel"
+        />
+        <input
+          type="text"
+          class="input"
+          placeholder="Địa chỉ"
+          required
+          autocomplete="off"
+          name="user_address"
+        />
+        <br />
+        <input
+          type="text"
+          class="input"
+          placeholder="Mặt hàng bán"
+          required
+          autocomplete="off"
+          name="user_product"
+        />
+        <input
+          type="text"
+          class="input"
+          placeholder="Số lượng"
+          required
+          autocomplete="off"
+          name="user_quantity"
+        />
+        <br />
+        <div class="choose_file">
+          <label for="file">Ảnh sản phẩm(.jpg/.png): </label>
+          <input
+            type="file"
+            name="file"
+            id="file"
+            multiple
+            required
+            accept=".jpg, .png"
+          />
+        </div>
+        <button>Đăng ký</button>
+      </form>
+    </div>
+  </body>
+</html>
