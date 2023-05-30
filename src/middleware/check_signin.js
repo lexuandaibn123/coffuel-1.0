@@ -1,9 +1,11 @@
 import { checkUser } from "../services/CRUDService.js";
+import { convert_back } from "../services/JWT.js";
 
 const check_signin = async (req, res, next) => {
   let cookie = req.cookies.account_techstart_coffuel;
   if (!cookie) cookie = "";
-  let text = await checkUser(cookie.toString().slice(18));
+  let data = convert_back(cookie);
+  let text = await checkUser(data);
   if (text == "OK") {
     next();
   } else {
@@ -19,14 +21,17 @@ const check_home = async (req, res) => {
       message: "",
     });
   } else {
-    let text = await checkUser(cookie.toString().slice(18));
+    let data = convert_back(cookie);
+    let text = await checkUser(data);
     if (text == "OK") {
       res.render("home", {
         message: "login",
+        user: "omg",
       });
     } else {
       res.render("home", {
         message: "",
+        user: "omg",
       });
     }
   }

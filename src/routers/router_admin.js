@@ -7,6 +7,7 @@ import { update_user_id, update_user } from "../models/update_user.js";
 import { delete_user_id, delete_user } from "../models/delete_user.js";
 import { checkAccount } from "../services/CRUDService.js";
 import { read_product } from "../models/read_product.js";
+import { chat_realtime_admin } from "../models/chat_realtime.js";
 
 const router_admin = express.Router();
 
@@ -40,6 +41,8 @@ router_admin.post("/create_database", check_admin, create_user, (req, res) => {
 });
 
 router_admin.post("/check_username", checkAccount);
+
+router_admin.get("/chat", check_admin, chat_realtime_admin);
 router_admin.use((data, req, res, next) => {
   res.send(data);
 });

@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+}
+.navbar {
+  width: 100%;
+  height: 5vw;
+  position: fixed;
+  background-color: rgba(1, 1, 1, 0.503);
+  color: white;
+  display: flex;
+  overflow: hidden;
+}
+.navbar_item {
+  height: 100%;
+  width: 50%;
+  font-size: 2.2vw;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  padding-top: 2vw;
+}
+#back_button {
+  left: 1vw;
+  position: absolute;
+  top: 13vh;
+  height: 2vw;
+  width: 9vw;
+  border-radius: 1vh;
+  cursor: pointer;
+}
+#back_button:hover {
+  background-color: rgba(130, 132, 245, 0.5);
+}
+#back_button span::before {
+  content: "<<";
+  margin-right: 3px;
+  display: none;
+}
+#back_button:hover span::before {
+  display: inline-block;
+  animation: back 1s;
+}
+@keyframes back {
+  0% {
+    display: inline-block;
+    transform: rotateX(-90deg);
+  }
+  100% {
+    display: inline-block;
+    transform: rotateX(0);
+  }
+}
+table {
+  color: black;
+  position: absolute;
+  top: 20vh;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+tr,
+th,
+td {
+  border: 1px solid black;
+}
+th {
+  height: 6vh;
+  font-size: 2vw;
+  background-color: rgba(126, 255, 56, 0.5);
+}
+td {
+  height: 4vh;
+  font-size: 1.5vw;
+  text-align: center;
+}
+tr:hover {
+  background-color: rgba(130, 132, 245, 0.5);
+}
+.user_name {
+  width: 15vw;
+}
+.user_address {
+  width: 25vw;
+}
+.user_product {
+  width: 18vw;
+}
+.user_quantity {
+  width: 12vw;
+}
+.user_tel {
+  width: 15vw;
+}
+.user_state {
+  width: 15vw;
+}

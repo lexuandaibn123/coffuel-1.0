@@ -21,34 +21,50 @@
   </head>
   <body>
     <div class="banner" id="b1">
-      <div class="header1">
-        <div class="logo">
-          <img src="./images/Logo tách nền.png" id="logo" />
+      <div class="navbar navbar_animation" id="navbar">
+        <div class="content_navbar">
+          <a class="element_navbar" href="#b1">HOME</a>
+          <a class="element_navbar" href="#b2">LỢI THẾ</a>
+          <a class="element_navbar" href="#b3">VỀ CHÚNG TÔI</a>
+          <a class="element_navbar" href="#b4">DANH MỤC SẢN PHẨM</a>
+          <a class="element_navbar" href="#b5">QUY TRÌNH</a>
+          <a class="element_navbar" href="#b6">LIÊN HỆ</a>
         </div>
-        <details class="info">
-          <summary>THÔNG TIN</summary>
-          <span class="cac_muc"><a href="#b3">VỀ CHÚNG TÔI</a></span>
-          <span class="cac_muc"><a href="#b4">DANH MỤC SẢN PHẨM</a></span
-          ><span class="cac_muc"><a href="#b5">QUY TRÌNH</a></span
-          ><span class="cac_muc"><a href="#b6">LIÊN HỆ</a></span>
-        </details>
-        <div class="login" id="div_in">
-          <button id="sign_in">Đăng nhập</button
-          ><button id="sign_up">Đăng ký</button>
+        <div class="log_navbar">
+          <a class="element_navbar" id="sign_in" href="/sign_in">Đăng nhập</a>
+          <a class="element_navbar" id="sign_up" href="/sign_up">Đăng ký</a>
+          <a class="element_navbar" id="sign_out">Đăng xuất</a>
         </div>
-        <div class="login" id="div_out">
-          <button id="sign_out">Đăng xuất</button>
-        </div>
-        <input id="state" value="<%=message%>" />
+        <input id="state" value="<%=message%>" type="hidden" />
       </div>
-      <div class="coffuel">Coffuel</div>
-      <hr />
-      <div class="content1">REDUCE THE WASTES, CREATE THE WAYS</div>
-      <hr />
-      <div class="content1_footer">VIÊN NÉN NĂNG LƯỢNG TÁI TẠO</div>
-      <button class="item_footer">SẢN PHẨM</button
-      ><button class="item_footer">HỢP TÁC</button
-      ><button class="item_footer">GIỎ HÀNG</button>
+      <div class="div_chat">
+        <span id="cancel_chat">X</span>
+        <div id="content_chat"></div>
+        <form id="form_chat">
+          <input
+            type="text"
+            id="chat"
+            name="text_chat"
+            placeholder="Nhập văn bản ..."
+            required
+            autocomplete="off"
+          />
+          <button>Gửi</button>
+        </form>
+      </div>
+      <img src="/images/icon_chat.png" id="icon_chat" />
+      <div class="section">
+        <div class="coffuel">Coffuel</div>
+        <hr class="hr1" />
+        <div class="content1">REDUCE THE WASTES, CREATE THE WAYS</div>
+        <hr class="hr2" />
+        <div class="content1_footer">VIÊN NÉN NĂNG LƯỢNG TÁI TẠO</div>
+        <div class="footer">
+          <button class="item_footer">SẢN PHẨM</button
+          ><button class="item_footer">HỢP TÁC</button
+          ><button class="item_footer">GIỎ HÀNG</button>
+        </div>
+      </div>
     </div>
     <div id="b2" class="banner">
       <div class="div_item2">
@@ -60,7 +76,7 @@
         </p>
       </div>
       <div class="div_item2">
-        <img src="/images/may_xuc.jpg" class="icon_2" />
+        <img src="/images/giam_thieu.jpg" class="icon_2" />
         <h3 class="header_2">Giảm tối đa lượng tro</h3>
         <p class="content_2">
           Lượng tro còn lại sau khi đốt giảm đến 85% so với các nhiên liệu
@@ -78,15 +94,19 @@
     </div>
     <div class="banner" id="b3">
       <div class="div_leftb3">
-        <img src="./images/Logo tách nền.png" class="img_3" />
+        <img src="/images/Logo Coffuel trắng.png" class="img_3" />
+        <img
+          src="/images/Ảnh quảng cáo xinh xinh (1).jpg"
+          class="img_3_item1"
+        />
+        <img src="/images/MVP AI vẽ (2).jpg" class="img_3_item2" />
       </div>
       <div class="div_rightb3">
-        <h3 class="header_contentnb3">Giới thiệu về chúng tôi</h3>
-        <hr class="gachb3" />
-        <p class="contentb3">
+        <h3 class="header_contentb3">Giới thiệu về chúng tôi</h3>
+        <p class="contentb3" id="p3_1">
           Coffuel là một giải pháp năng lượng xanh cho cộng đồng
         </p>
-        <p class="contentb3">
+        <p class="contentb3" id="p3_2">
           Chúng tôi mang đến cho thị trường những viên nén sinh khối có thành
           phần bã cà phê và là giải pháp cho 3 vấn đề của xã hội: khủng hoảng
           năng lượng, ô nhiễm môi trường và phụ phẩm công nghiệp.<br /><br />Coffuel
@@ -97,23 +117,68 @@
       </div>
     </div>
     <div class="banner" id="b4">
+      <div class="div_content_4">
+        <div class="content_4">
+          <span id="cancel_information">X</span>
+          <p id="product_name">Tên sản phẩm:</p>
+          <p id="product_describe">Mô tả:</p>
+          <p id="product_price">Giá thành:</p>
+        </div>
+      </div>
+
       <div class="text_content4">
-        <button class="next_back"><</button>
+        <h3>Bấm để xem thông tin sản phẩm</h3>
         <div class="show_img">
           <div class="list_img">
-            <img src="/images/MVP (1).jpg" class="img_item" />
-            <img src="/images/MVP (2).jpg" class="img_item" /><img
-              src="/images/caphe.jpg"
+            <img
+              src="/images/MVP (1).jpg"
               class="img_item"
-            /><img src="/images/MVP (2).jpg" class="img_item" />
-            <img src="/images/MVP (1).jpg" class="img_item" />
+              title="Viên nén cà phê dành cho công nghiệp"
+            />
+            <img
+              src="/images/viennenhinhthu.jpg"
+              class="img_item"
+              title="Viên nén sinh khối không khói có hình thù đặc biệt"
+            />
+            <img
+              src="/images/doluuniem.jpg"
+              class="img_item"
+              title="Đồ lưu niệm"
+            />
+            <img
+              src="/images/vai.jpg"
+              class="img_item"
+              title="Vải từ bã cà phê"
+            />
+            <img
+              src="/images/dodung.jpg"
+              class="img_item"
+              title="Đồ dùng từ bã cà phê"
+            />
+            <img
+              src="/images/daudiesel.jpg"
+              class="img_item"
+              title="Dầu diesel chiết suất từ bã cà phê"
+            />
           </div>
         </div>
-        <button class="next_back">></button>
+        <div class="icon_item">
+          <span class="item_next_back"></span>
+          <span class="item_next_back"></span>
+          <span class="item_next_back"></span>
+          <span class="item_next_back"></span>
+          <span class="item_next_back"></span>
+          <span class="item_next_back"></span>
+        </div>
+        <button class="next_back" id="back"><</button>
+        <button class="next_back" id="next">></button>
       </div>
-      <div class="image4">
-        <img src="/images/Ảnh quảng cáo xinh xinh (3).jpg" class="img4" />
-      </div>
+
+      <img src="/images/cay_coffee2.png" class="img_42" /><img
+        src="/images/cay_coffee.png"
+        class="img_41"
+      />
+      <div class="footer_b4"></div>
     </div>
     <div class="banner" id="b5">
       <div class="tong_quat">
@@ -161,27 +226,35 @@
       </div>
     </div>
     <div class="banner" id="b6">
-      <a
-        href="https://www.facebook.com/Coffuel2022?mibextid=ZbWKwL"
-        target="_blank"
-        class="fb_icon"
-        ><img src="/images/fb_icon.png" class="fb_img"
-      /></a>
-      <div class="content6">
-        <h3 class="header6">LIÊN HỆ VỚI TRỤ SỞ</h3>
-        <hr class="gachchan6" />
-        <h3>COFFUEL</h3>
-        <h4>Địa chỉ: Đại học Bách Khoa Hà Nội</h4>
-        <h4>
-          Anh Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
-          <br />Điện thoại: 0866 869 318
-        </h4>
-        <h4>
-          Chị Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
-          <br />Điện thoại: 0396 531 013
-        </h4>
+      <div class="dynamic_div">
+        <div class="dynamic_text">
+          <li><span id="span_dynamic">Liên hệ với chúng tôi</span></li>
+        </div>
+      </div>
+      <div class="information">
+        <a
+          href="https://www.facebook.com/Coffuel2022?mibextid=ZbWKwL"
+          target="_blank"
+          class="fb_icon"
+          ><img src="/images/fb_icon.png" class="fb_img"
+        /></a>
+        <div class="content6">
+          <h3 class="header6">LIÊN HỆ VỚI TRỤ SỞ</h3>
+          <hr class="gachchan6" />
+          <h3>COFFUEL</h3>
+          <h4>Địa chỉ: Đại học Bách Khoa Hà Nội</h4>
+          <h4>
+            Anh Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
+            <br />Điện thoại: 0866 869 318
+          </h4>
+          <h4>
+            Chị Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
+            <br />Điện thoại: 0396 531 013
+          </h4>
+        </div>
       </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
     <script type="module" src="/javascript/home.js"></script>
   </body>
 </html>

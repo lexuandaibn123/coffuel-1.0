@@ -41,7 +41,7 @@ p {
   border-radius: 1vh;
   margin-bottom: 2px;
 }
-.choose_file {
+/* .choose_file {
   position: absolute;
   margin-top: 1.5vh;
   font-size: 2.4vh;
@@ -50,9 +50,9 @@ p {
 }
 #file {
   color: white;
-}
+} */
 /* cho phép css button của thẻ input=type */
-input[type="file"]::file-selector-button {
+/* input[type="file"]::file-selector-button {
   width: 8vw;
   border-radius: 2vh;
   height: 4vh;
@@ -64,13 +64,13 @@ input[type="file"]::file-selector-button {
 input[type="file"]::file-selector-button:hover {
   background-color: #81ecec;
   border: 2px solid #00cec9;
-}
+} */
 button {
   width: 8vw;
   height: 5vh;
   font-size: 2.5vh;
   border-radius: 1vh;
-  margin-top: 8vh;
+  margin-top: 4vh;
   cursor: pointer;
   background-color: rgba(178, 173, 173, 0.8);
   transition: 1s;

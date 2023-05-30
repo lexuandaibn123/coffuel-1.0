@@ -1,20 +1,14 @@
-const setCookie = (key, value, hour) => {
-  let d = new Date();
-  d.setTime(d.getTime() + hour * 60 * 60 * 1000);
-  document.cookie = key + "=" + value + ";" + "expires=" + d.toUTCString();
-};
+import { setCookie } from "./set_cookie.js";
 
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
-});
-document.getElementById("send").addEventListener("click", () => {
+
   let user_name = document.getElementById("name").value;
   let user_password = document.getElementById("password").value;
-
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     const text = this.responseText;
-    setCookie("techstart_coofuel", text, 0.5);
+    document.cookie = setCookie("techstart_coffuel", text, 0.5);
     window.location.assign("/admin/read_database_user"); // do khi res.send() không thể next nên dùng dòng này để GET
   };
   xhttp.open("POST", "");

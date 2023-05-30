@@ -2,11 +2,13 @@
   margin: 0;
   padding: 0;
 }
+body {
+  overflow-x: auto;
+  width: max-content;
+}
 table {
-  width: auto;
   margin-top: 3vh;
   border-collapse: collapse;
-  overflow-x: auto;
 }
 tr:hover {
   background-color: rgba(152, 255, 188, 0.4);
@@ -37,14 +39,15 @@ td {
 }
 
 .user_tel,
-.actions {
-  width: 10vw;
+.actions,
+.user_state {
+  width: 15vw;
 }
 form {
   display: inline-block;
 }
 button {
-  width: 3vw;
+  width: 3.5vw;
   margin-left: 0.5vw;
   margin-right: 0.5vw;
   cursor: pointer;

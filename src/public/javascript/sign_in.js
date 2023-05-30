@@ -8,16 +8,13 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
-    if (this.responseText == "OK") {
-      let text = setCookie(
-        "account_techstart_coffuel",
-        "techstart_coffuel_" + user_name.value,
-        24
-      );
+    let data = JSON.parse(this.responseText);
+    if (data.state == "OK") {
+      let text = setCookie("account_techstart_coffuel", data.cookie, 12);
       document.cookie = text;
       window.location.assign("/");
     } else {
-      message.innerHTML = this.responseText;
+      message.innerHTML = "Tài khoản hoặc mật khẩu không trùng khớp";
     }
   };
   xhttp.open("POST", "/compare_user");

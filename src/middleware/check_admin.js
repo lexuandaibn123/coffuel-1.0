@@ -1,12 +1,14 @@
 import dotenv from "dotenv";
+import { convert_back } from "../services/JWT.js";
 dotenv.config();
 
 const check_admin = async (req, res, next) => {
-  let cookie = req.cookies.techstart_coofuel;
+  let cookie = req.cookies.techstart_coffuel;
   if (!cookie) {
     res.redirect("/admin");
   } else {
-    if (cookie == process.env.COOKIE_ADMIN) {
+    let data = convert_back(cookie);
+    if (data == process.env.COOKIE_ADMIN) {
       next();
     } else {
       next("Login err");

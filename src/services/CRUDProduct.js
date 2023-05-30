@@ -7,10 +7,11 @@ const AddProduct = async (
   user_product,
   user_quantity,
   user_tel,
-  user_email
+  user_email,
+  user_state
 ) => {
   const [results, fields] = await pool.query(
-    "INSERT INTO Products (user_name, user_fullname, user_address,user_product,user_quantity,user_tel,user_email) VALUES (?, ?, ?, ?, ?, ?, ?)",
+    "INSERT INTO Products (user_name, user_fullname, user_address, user_product, user_quantity, user_tel, user_email, user_state) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
     [
       user_name,
       user_fullname,
@@ -19,6 +20,7 @@ const AddProduct = async (
       user_quantity,
       user_tel,
       user_email,
+      user_state,
     ]
   );
 };
@@ -27,5 +29,11 @@ const getAllProducts = async () => {
   const [results, fields] = await pool.query("select * from Products");
   return results;
 };
-
-export { AddProduct, getAllProducts };
+const User_Product = async (text) => {
+  const [results, fields] = await pool.query(
+    `select * from Products where user_name='${text}'`
+  );
+  if (results.length == 0) return "Không có kết quả";
+  else return results;
+};
+export { AddProduct, getAllProducts, User_Product };

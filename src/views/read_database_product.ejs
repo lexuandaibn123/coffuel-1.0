@@ -29,6 +29,7 @@
             <th class="user_quantity">User_Quantity</th>
             <th class="user_tel">User_Tel</th>
             <th class="user_email">User_Email</th>
+            <th class="user_state">User_state</th>
             <th class="actions">Actions</th>
           </tr>
           <% for(let i = 0; i < list_users.length; i++) { %>
@@ -41,9 +42,17 @@
             <td><%= list_users[i].user_quantity %></td>
             <td><%= list_users[i].user_tel %></td>
             <td><%= list_users[i].user_email %></td>
+            <td><%= list_users[i].user_state %></td>
             <td style="text-align: center">
               <form
-                action="/admin/update_database/<%=list_users[i].id%>"
+                action="/admin/confirm_database_product/<%=list_users[i].id%>"
+                method="get
+              "
+              >
+                <button>Confirm</button>
+              </form>
+              <form
+                action="/admin/update_database_product/<%=list_users[i].id%>"
                 method="get
               "
               >

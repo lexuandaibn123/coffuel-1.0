@@ -1,4 +1,5 @@
 import { pool } from "../config/connectDB.js";
+import { convert_next } from "./JWT.js";
 
 const getAllUsers = async () => {
   const [results, fields] = await pool.query("select * from Users");
@@ -49,12 +50,17 @@ const CompareAccount = async (req, res) => {
   );
   if (results.length > 0) {
     if (results[0].user_password == req.body.user_password) {
-      res.send("OK");
+      console.log(req.body.user_name);
+      let token = convert_next(req.body.user_name);
+      token = token.toString();
+      let obj = { state: "OK", cookie: token };
+      obj = JSON.stringify(obj);
+      res.send(obj);
     } else {
-      res.send("Tài khoản hoặc mật khẩu không trùng khớp");
+      res.send({ err: "err" });
     }
   } else {
-    res.send("Tài khoản hoặc mật khẩu không trùng khớp");
+    res.send({ err: "err" });
   }
 };
 
