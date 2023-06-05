@@ -23,3 +23,28 @@ form.addEventListener("submit", async (e) => {
     `user_name=${user_name.value}&user_password=${user_password.value}`
   );
 });
+// xử lý phần gửi email
+
+const send_email = document.getElementById("send_email");
+const email_received = document.getElementById("email_received");
+
+const is_email = (to_email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(to_email); // test xem có phù hợp với biểu thức chính quy không
+};
+
+send_email.addEventListener("click", () => {
+  let to_email = email_received.value;
+  let bool = is_email(to_email);
+  if (bool == true) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      alert(
+        `Gửi mail thành công tới ${to_email}. Vui lòng kiểm tra mail của bạn`
+      );
+      email_received.value = "";
+    };
+    xhttp.open("GET", `/send_email_user?email=${to_email}`);
+    xhttp.send();
+  } else alert("Email không hợp lệ");
+});

@@ -83,3 +83,31 @@ button:hover {
 button:active {
   transform: translateY(0.5);
 }
+@media only screen and (max-width: 800px) {
+  body {
+    background-image: url("/images/cooperate_phone.jpg");
+    background-attachment: fixed;
+  }
+  .logo {
+    display: none;
+  }
+  .content {
+    margin-top: 25%;
+    width: 90%;
+    height: 50%;
+    background-color: rgba(122, 122, 122, 0.5);
+    margin-left: 5%;
+  }
+  h3 {
+    margin-top: 0%;
+    color: black;
+  }
+  .input {
+    width: 45%;
+  }
+  button {
+    width: 30%;
+    margin-top: 5%;
+    background-color: #adfffe;
+  }
+}

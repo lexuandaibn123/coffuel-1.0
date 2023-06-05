@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.div_element {
+  margin: 2vh;
+  border: 1px solid black;
+  width: 25%;
+  padding-left: 2vw;
+  cursor: pointer;
+  height: 6vh;
+  position: relative;
+}
+span {
+  width: 4vh;
+  height: 4vh;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 2vw;
+  top: 1vh;
+}
+.not_message {
+  background-color: greenyellow;
+}
+.new_message {
+  background-color: red;
+}

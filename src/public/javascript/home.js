@@ -32,62 +32,62 @@ const item_next_back = [...document.getElementsByClassName("item_next_back")];
 let state_item = 0;
 item_next_back[state_item].classList.add("scale");
 
-const next_img = async () => {
+const next_img = async (size) => {
   let text = list_img[0].style.left.toString();
   let x = text.slice(0, text.length - 2);
-  state_item = Math.abs(x) / "30";
+  state_item = Math.abs(x) / (30 * size);
   item_next_back[state_item].classList.remove("scale");
   item_next_back[state_item + 1].classList.add("scale");
-  for (let i = -30; i >= -150; i -= 30) {
-    if (x > i && x < i + 30) {
-      x = i + 30;
+  for (let i = -30 * size; i >= -150 * size; i -= 30 * size) {
+    if (x > i && x < i + 30 * size) {
+      x = i + 30 * size;
       break;
     }
   }
-  let y = 3;
+  let y = 3 * size;
   let tong = 0;
   let k = await setInterval(() => {
     button[1].style.disabled = true;
     x = (x * 1000 - y * 1000) / 1000;
     tong = (tong * 1000 + y * 1000) / 1000;
-    y = (y * 1000 - 0.15 * 1000) / 1000;
+    y = (y * 1000 - 0.15 * size * 1000) / 1000;
     list_img[0].style.left = x + "vw";
-    if (tong == 30) {
-      check();
+    if (tong == 30 * size) {
+      check(size);
       clearInterval(k);
     }
   }, 10);
 };
 
-const back_img = async () => {
+const back_img = async (size) => {
   let text = list_img[0].style.left.toString();
   let x = text.slice(0, text.length - 2);
-  state_item = Math.abs(x) / "30";
+  state_item = Math.abs(x) / (30 * size);
   item_next_back[state_item].classList.remove("scale");
   item_next_back[state_item - 1].classList.add("scale");
-  for (let i = -30; i > -150; i -= 30) {
-    if (x > i && x < i + 30) {
+  for (let i = -30 * size; i > -150 * size; i -= 30 * size) {
+    if (x > i && x < i + 30 * size) {
       x = i;
       break;
     }
   }
-  let y = 3;
+  let y = 3 * size;
   let tong = 0;
   let k = await setInterval(() => {
     button[0].style.disabled = true;
     x = (x * 1000 + y * 1000) / 1000;
     tong = (tong * 1000 + y * 1000) / 1000;
-    y = (y * 1000 - 0.15 * 1000) / 1000;
+    y = (y * 1000 - 0.15 * size * 1000) / 1000;
     list_img[0].style.left = x + "vw";
-    if (tong == 30) {
-      check();
+    if (tong == 30 * size) {
+      check(size);
       clearInterval(k);
     }
   }, 10);
 };
 
-const check = () => {
-  if (list_img[0].style.left.toString().trim() == "-150vw")
+const check = (size) => {
+  if (list_img[0].style.left.toString().trim() == -150 * size + "vw")
     button[1].disabled = true;
   else button[1].disabled = false;
   if (list_img[0].style.left.toString().trim() == "0vw")
@@ -95,17 +95,21 @@ const check = () => {
   else button[0].disabled = false;
 };
 button[0].disabled = true;
-
+let size;
 button[0].addEventListener("click", async () => {
-  await back_img();
+  if (window.innerWidth <= 800) size = 2;
+  else size = 1;
+  await back_img(size);
   if (list_img[0].style.left.toString() == "") button[0].disabled = true;
   else button[0].disabled = false;
-  check();
+  check(size);
 });
 
 button[1].addEventListener("click", async () => {
-  await next_img();
-  check();
+  if (window.innerWidth <= 800) size = 2;
+  else size = 1;
+  await next_img(size);
+  check(size);
 });
 
 // các nút ở trang 1
@@ -123,12 +127,12 @@ element[2].addEventListener("click", () => {
 
 // CSS navbar và các phần tử
 //document.documentElement.scrollTop // xác định vị trí top
+
 window.addEventListener("scroll", () => {
   let h = document.documentElement.scrollTop;
   let b = window.innerHeight;
   // 100 vh = 798 px = b px  => x vh = h * 100 / b
   const navbar = document.getElementById("navbar");
-  const div_b3 = [...document.getElementsByClassName("div_rightb3")];
   const content_b5 = [...document.getElementsByClassName("content_b5")];
   const arr = [sign_in, sign_up, sign_out];
   const height = (h * 100) / b; // bắt đầu từ 0 (vị trí ban đầu)
@@ -148,14 +152,49 @@ window.addEventListener("scroll", () => {
       e.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
     });
   }
-  if (height >= 100) {
-    div_b3[0].classList.add("animation_b3");
-  }
+  // if (height >= 100) {
+  //   div_b3[0].classList.add("animation_b3");
+  // }
   if (height >= 260) {
     content_b5.forEach((e) => {
       e.classList.add("content_b5_animation");
       // setTimeout(e.classList.remove("content_b5_animation"), 2000);
     });
+  }
+  //hiện hr navbar
+  if (window.innerWidth > 800) {
+    const hr_navbar = [...document.getElementsByClassName("hr_navbar")];
+    const none_hr_navbar = (i) => {
+      for (let j = 0; j < hr_navbar.length; j++) {
+        if (j == i) continue;
+        hr_navbar[j].style.width = "0";
+      }
+    };
+    const display_hr_navbar = (i) => {
+      hr_navbar[i].style.width = "100%";
+      hr_navbar[i].style.height = "2px";
+      hr_navbar[i].style.backgroundColor = "white";
+      none_hr_navbar(i);
+    };
+    if (height >= 0 && height < 40) {
+      display_hr_navbar(0);
+      if (height == 0) hr_navbar[0].style.backgroundColor = "black";
+    }
+    if (height >= 40 && height < 110) {
+      display_hr_navbar(1);
+    }
+    if (height >= 110 && height < 200) {
+      display_hr_navbar(2);
+    }
+    if (height >= 200 && height < 300) {
+      display_hr_navbar(3);
+    }
+    if (height >= 300 && height < 360) {
+      display_hr_navbar(4);
+    }
+    if (height >= 360) {
+      display_hr_navbar(5);
+    }
   }
 });
 
@@ -199,17 +238,17 @@ window.addEventListener("load", () => {
   xhttp.send();
 });
 
-const span_dynamic = document.getElementById("span_dynamic");
-const arr = ["Liên hệ với chúng tôi", "Coffuel giải pháp an toàn"];
-let i = 0;
-setInterval(() => {
-  i++;
-  span_dynamic.innerHTML = arr[i];
-  if (i == 1) i = -1;
-}, 6000);
+// const span_dynamic = document.getElementById("span_dynamic");
+// const arr = ["Liên hệ với chúng tôi", "Coffuel giải pháp an toàn"];
+// let i = 0;
+// setInterval(() => {
+//   i++;
+//   span_dynamic.innerHTML = arr[i];
+//   if (i == 1) i = -1;
+// }, 6000);
 
 // xử lý phần chat
-
+const socket = io();
 const div_chat = [...document.getElementsByClassName("div_chat")][0];
 const cancel_text = document.getElementById("cancel_chat");
 const content_chat = document.getElementById("content_chat");
@@ -220,24 +259,40 @@ const icon_chat = document.getElementById("icon_chat");
 div_chat.style.height = "0vh";
 cancel_text.addEventListener("click", () => {
   div_chat.style.height = "0vh";
+  div_chat.style.border = "0";
 });
 
 icon_chat.addEventListener("click", () => {
-  div_chat.style.height = "60vh";
+  if (message.value == "login") {
+    let arr = document.cookie.split(";");
+    let i, find;
+    for (i = 0; i < arr.length; i++) {
+      find = arr[i].indexOf("account_techstart_coffuel");
+      if (find >= 0) break;
+    }
+    div_chat.style.height = "60vh";
+    div_chat.style.border = "2px solid black";
+    let arr2 = arr[i].trim();
+    let user_name = arr2.split("=");
+    console.log(content_chat.toString());
+    if (!content_chat.firstElementChild) socket.emit("join_room", user_name[1]);
+    window.addEventListener("unload", (e) => {
+      socket.emit("clean_data", user_name[1]);
+    });
+  } else window.location.assign("/sign_in");
 });
 
-const socket = io();
-
 socket.on("text_chat", (mess) => {
-  const li = document.createElement("li");
+  const p = document.createElement("p");
   if (mess.user == true) {
-    li.textContent = "User: " + mess.message;
-    li.classList.add("li_chat_user");
+    p.textContent = "User: " + mess.message;
+    p.classList.add("p_chat_user");
   } else {
-    li.textContent = "Admin: " + mess.message;
-    li.classList.add("li_chat_admin");
+    p.textContent = "Admin: " + mess.message;
+    p.classList.add("p_chat_admin");
   }
-  content_chat.appendChild(li);
+  content_chat.appendChild(p);
+  content_chat.scrollTop = content_chat.scrollHeight; // luôn hiện tin nhắn cuối
 });
 
 form_chat.addEventListener("submit", (e) => {
@@ -255,3 +310,43 @@ form_chat.addEventListener("submit", (e) => {
     text.value = "";
   }
 });
+
+// xử lý phần gửi email
+
+const send_email = document.getElementById("send_email");
+const email_received = document.getElementById("email_received");
+
+const is_email = (to_email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(to_email); // test xem có phù hợp với biểu thức chính quy không
+};
+
+send_email.addEventListener("click", () => {
+  let to_email = email_received.value;
+  let bool = is_email(to_email);
+  if (bool == true) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      alert(
+        `Gửi mail thành công tới ${to_email}. Vui lòng kiểm tra mail của bạn`
+      );
+      email_received.value = "";
+    };
+    xhttp.open("GET", `/send_email_user?email=${to_email}`);
+    xhttp.send();
+  } else alert("Email không hợp lệ");
+});
+
+// xử lý phần phone
+
+const ba_gach = document.getElementById("ba_gach");
+const content_navbar = [
+  ...document.getElementsByClassName("content_navbar"),
+][0];
+const cancel_content_navbar = document.getElementById("cancel_content_navbar");
+ba_gach.onclick = () => {
+  content_navbar.style.width = "45vw";
+};
+cancel_content_navbar.onclick = () => {
+  content_navbar.style.width = "0";
+};

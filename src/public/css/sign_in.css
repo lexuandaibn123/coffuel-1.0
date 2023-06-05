@@ -1,36 +1,35 @@
 body {
   margin: 0 !important;
+  overflow-x: hidden;
 }
 .banner {
-  background-image: url("../images/Ảnh\ quảng\ cáo\ xinh\ xinh\ \(1\).jpg");
-  background-position: center;
-  background-size: 120% 100%;
+  background-image: url("/images/Ảnh quảng cáo xinh xinh (2).jpg");
+  background-position: bottom;
+  background-size: 130% 110%;
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .div_form {
-  background-color: #594b42;
-  height: 70vh;
-  width: 60%;
+  background-color: aliceblue;
+  height: 55vh;
+  width: 35%;
   border-radius: 10vh;
   display: flex;
-}
-.logo {
-  background-image: url("../images/Logo\ tách\ nền.png");
-  background-size: 150% 100%;
-  background-position: center;
-  height: 100%;
-  width: 40%;
+  z-index: 2;
+  border: 3px solid rgba(31, 31, 31, 0.8);
+  display: flex;
+  justify-content: center;
 }
 form {
   height: 100%;
   position: relative;
   text-align: center;
-  width: 60%;
-  padding-top: 15%;
+  width: max-content;
+  padding-top: 20%;
 }
 input {
   height: 4vh;
@@ -42,26 +41,333 @@ input {
 }
 button {
   height: 5vh;
-  width: 8vw;
+  width: 45%;
   border-radius: 2vh;
   cursor: pointer;
   font-size: 2.4vh;
   display: block;
+  margin-left: 55%;
+  margin-bottom: 1vh;
   margin-top: 2vh;
-  margin-left: 20vw;
 }
 button:hover {
   background-color: greenyellow;
 }
 a {
   margin-left: 14vw;
-  color: white;
-  margin-top: 1vh;
+  color: black;
+  margin-top: 2vh;
   font-size: 2.2vh;
 }
 a:hover {
   color: lightskyblue;
 }
-p {
+.logo_phone {
+  z-index: 5;
+  position: absolute;
+  top: -5vh;
+  left: -5vh;
+  width: 15vw;
+}
+#message {
   color: red;
+  font-size: 2.5vh !important;
+  font-weight: 200 !important;
+}
+#b6 {
+  height: 60vh;
+  background-color: rgb(31, 31, 31);
+  position: relative;
+  display: flex;
+  color: white;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  margin-top: -4%;
+}
+.information {
+  width: 35%;
+  height: 80%;
+  z-index: 4;
+  position: relative;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.information hr {
+  width: 55%;
+  margin-left: 0 !important;
+}
+.information_1 {
+  margin-left: 15vw;
+}
+.coffuel_b6 {
+  position: absolute;
+  font-family: "Inria Serif", serif;
+  font-size: 3vw;
+  top: 10%;
+  right: 36%;
+}
+.logo_b6 {
+  width: 45%;
+}
+.fb_img {
+  border-radius: 100%;
+  width: 1.5vw;
+}
+.information_details {
+  margin-top: -3%;
+}
+.send_email {
+  overflow: hidden;
+  height: 3vw;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  border-radius: 0.5vw;
+  border: 1px solid rgba(238, 238, 255, 0.5);
+  margin-top: -3%;
+}
+.send_email input {
+  width: 16vw;
+  height: 3vw;
+  border: 0;
+  color: whitesmoke;
+  font-size: 1.1vw;
+  background-color: rgba(25, 25, 25, 0.6);
+  padding-left: 1vw;
+  margin: 0;
+}
+.send_email button {
+  background-color: rgba(161, 161, 255, 0.5);
+  width: 5vw;
+  height: 3.2vw;
+  border: 0;
+  color: whitesmoke;
+  font-size: 1.1vw;
+  cursor: pointer;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0;
+}
+.send_email button:hover {
+  transform: scale(1);
+}
+@media only screen and (min-width: 801px) {
+  .header {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 10vh;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  .header h2 {
+    margin-bottom: 2vh !important;
+    font-size: 5vh;
+    margin-top: -1%;
+  }
+  .header a {
+    margin: 0;
+    text-decoration: none;
+    color: rgba(44, 44, 44, 0.8);
+    font-size: 2.5vh;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .header p {
+    margin: 0;
+    color: rgba(44, 44, 44, 0.8);
+    font-size: 2.5vh;
+    font-weight: 600;
+  }
+  .footer_banner {
+    background-color: white;
+    position: absolute;
+    height: 50vh;
+    width: 100vw;
+    bottom: 0;
+  }
+  .fb_icon {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .banner {
+    background-image: url("/images/Ảnh quảng cáo xinh xinh (2).jpg");
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: 130% 130%;
+  }
+  .logo_phone {
+    position: absolute;
+    display: block;
+    width: 50vw;
+    top: -10vw;
+    left: -10vw;
+    z-index: 3;
+  }
+  .header {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 10vh;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  .header h2 {
+    font-size: 4vh;
+  }
+  .header a,
+  p {
+    color: rgba(31, 31, 31, 0.8);
+    text-decoration: none;
+    font-size: 2.4vh;
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+  }
+  .logo {
+    display: none;
+  }
+  .div_form {
+    background-color: aliceblue;
+    text-align: center;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    overflow: hidden;
+    border-radius: 5vw;
+    border: 1px solid black;
+    z-index: 1;
+  }
+  .footer_banner {
+    background-image: linear-gradient(
+      to bottom right,
+      whitesmoke 30%,
+      rgb(145, 145, 145)
+    );
+    position: absolute;
+    height: 50vh;
+    width: 100vw;
+    bottom: 0;
+    z-index: 0;
+  }
+  form {
+    padding-top: 20vh;
+    width: 100%;
+  }
+  input {
+    height: 4vh;
+    width: 55vw;
+  }
+  button {
+    width: 35vw;
+    margin-left: 34vw;
+  }
+  a {
+    margin-left: 41vw;
+    color: rgb(119, 119, 255);
+  }
+  #b6 {
+    background-color: rgb(31, 31, 31);
+    position: relative;
+    display: flex;
+    color: white;
+    overflow: hidden;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 2vh;
+    height: 60vh;
+    margin-top: -35%;
+  }
+  .information {
+    width: 100%;
+    height: 50%;
+    z-index: 4;
+    position: relative;
+    margin-bottom: 3vh;
+  }
+  .information hr {
+    width: 75%;
+    margin-left: 0 !important;
+  }
+  .coffuel_b6 {
+    position: absolute;
+    font-family: "Inria Serif", serif;
+    font-size: 4vh;
+    top: -4vh;
+    left: 17vh;
+  }
+  .logo_b6 {
+    width: 45%;
+    margin-top: -10%;
+    margin-left: -8%;
+  }
+  .fb_icon {
+    position: absolute;
+    margin: 0;
+  }
+  .fb_img {
+    border-radius: 100%;
+    width: 3vh;
+  }
+  .send_email {
+    overflow: hidden;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    width: 65vw;
+    border-radius: 0.5vw;
+    border: 1px solid rgba(238, 238, 255, 0.5);
+    position: absolute;
+    top: 7vh;
+    left: 13vh;
+    height: 5vh;
+  }
+  .send_email input {
+    width: 80%;
+    height: 100%;
+    border: 0;
+    color: whitesmoke;
+    font-size: 2vh;
+    background-color: rgba(25, 25, 25, 0.6);
+    padding-left: 1vw;
+    margin: 0;
+  }
+  .send_email button {
+    background-color: rgba(161, 161, 255, 0.5);
+    width: 20% !important;
+    height: 100%;
+    border: 0;
+    color: whitesmoke;
+    font-size: 2vh;
+    margin: 0;
+    border-radius: 0;
+  }
+  .send_email button:hover {
+    transform: scale(1);
+  }
+  .information_1 {
+    height: 20%;
+    margin-left: 0;
+    padding: 0;
+  }
+  .information hr {
+    width: 100%;
+  }
+  .information_3 h2,
+  h3,
+  h4 {
+    margin-left: 4vh;
+  }
+  .information_3 h4 {
+    line-height: 5.2vw;
+  }
 }

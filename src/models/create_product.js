@@ -1,6 +1,8 @@
 import { AddProduct } from "../services/CRUDProduct.js";
+import { convert_back } from "../services/JWT.js";
+
 const create_product = async (req, res, next) => {
-  const user_name = req.cookies.account_techstart_coffuel.toString().slice(18);
+  const user_name = convert_back(req.cookies.account_techstart_coffuel);
   const user_fullname = req.body.user_fullname.trim();
   const user_address = req.body.user_address.trim();
   const user_product = req.body.user_product.trim();

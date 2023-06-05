@@ -22,13 +22,33 @@
   <body>
     <div class="banner" id="b1">
       <div class="navbar navbar_animation" id="navbar">
+        <span id="ba_gach">☰</span>
         <div class="content_navbar">
-          <a class="element_navbar" href="#b1">HOME</a>
-          <a class="element_navbar" href="#b2">LỢI THẾ</a>
-          <a class="element_navbar" href="#b3">VỀ CHÚNG TÔI</a>
-          <a class="element_navbar" href="#b4">DANH MỤC SẢN PHẨM</a>
-          <a class="element_navbar" href="#b5">QUY TRÌNH</a>
-          <a class="element_navbar" href="#b6">LIÊN HỆ</a>
+          <span id="cancel_content_navbar">X</span>
+          <a class="element_navbar" href="#b1"
+            >TRANG CHỦ
+            <hr class="hr_navbar"
+          /></a>
+          <a class="element_navbar" href="#b2"
+            >LỢI THẾ
+            <hr class="hr_navbar"
+          /></a>
+          <a class="element_navbar" href="#b3"
+            >GIỚI THIỆU
+            <hr class="hr_navbar"
+          /></a>
+          <a class="element_navbar" href="#b4"
+            >SẢN PHẨM
+            <hr class="hr_navbar"
+          /></a>
+          <a class="element_navbar" href="#b5"
+            >QUY TRÌNH
+            <hr class="hr_navbar"
+          /></a>
+          <a class="element_navbar" href="#b6"
+            >LIÊN HỆ
+            <hr class="hr_navbar"
+          /></a>
         </div>
         <div class="log_navbar">
           <a class="element_navbar" id="sign_in" href="/sign_in">Đăng nhập</a>
@@ -226,32 +246,58 @@
       </div>
     </div>
     <div class="banner" id="b6">
-      <div class="dynamic_div">
+      <!-- <div class="dynamic_div">
         <div class="dynamic_text">
           <li><span id="span_dynamic">Liên hệ với chúng tôi</span></li>
         </div>
-      </div>
-      <div class="information">
-        <a
-          href="https://www.facebook.com/Coffuel2022?mibextid=ZbWKwL"
-          target="_blank"
-          class="fb_icon"
-          ><img src="/images/fb_icon.png" class="fb_img"
-        /></a>
-        <div class="content6">
-          <h3 class="header6">LIÊN HỆ VỚI TRỤ SỞ</h3>
-          <hr class="gachchan6" />
-          <h3>COFFUEL</h3>
-          <h4>Địa chỉ: Đại học Bách Khoa Hà Nội</h4>
-          <h4>
-            Anh Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
-            <br />Điện thoại: 0866 869 318
-          </h4>
-          <h4>
-            Chị Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
-            <br />Điện thoại: 0396 531 013
-          </h4>
+      </div> -->
+      <div class="information information_1">
+        <img src="/images/Logo tách nền.png" class="logo_b6" />
+        <h3 class="coffuel_b6">Coffuel</h3>
+        <h2 class="information_details">Thông tin chi tiết</h2>
+        <div class="send_email">
+          <input
+            type="email"
+            id="email_received"
+            required
+            placeholder="Email nhận thông tin"
+          />
+          <button id="send_email">Gửi</button>
         </div>
+      </div>
+      <div class="information information_2">
+        <h2>SITEMAP</h2>
+        <hr />
+        <h4>
+          <a href="#b1">TRANG CHỦ</a>
+        </h4>
+        <h4><a href="#b2">LỢI THẾ</a></h4>
+        <h4><a href="#b3">GIỚI THIỆU</a></h4>
+        <h4><a href="#b4">SẢN PHẨM</a></h4>
+        <h4><a href="#b5">QUY TRÌNH</a></h4>
+        <h4><a href="#b6">LIÊN HỆ</a></h4>
+      </div>
+      <div class="information information_3">
+        <h2>
+          LIÊN HỆ VỚI TRỤ SỞ &ensp;
+          <a
+            href="https://www.facebook.com/Coffuel2022?mibextid=ZbWKwL"
+            target="_blank"
+            class="fb_icon"
+            ><img src="/images/fb_icon.png" class="fb_img"
+          /></a>
+        </h2>
+        <hr />
+        <h3>COFFUEL</h3>
+        <h4>Địa chỉ: Đại học Bách Khoa Hà Nội</h4>
+        <h4>
+          Anh Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
+          <br />Điện thoại: 0866 869 318
+        </h4>
+        <h4>
+          Chị Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
+          <br />Điện thoại: 0396 531 013
+        </h4>
       </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>

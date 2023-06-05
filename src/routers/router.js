@@ -10,6 +10,7 @@ import {
   watch_cart_cooperate,
 } from "../models/watch_cart.js";
 import { get_list_products } from "../models/get_list_products.js";
+import { send_email } from "../models/send_email.js";
 
 const router = express.Router();
 
@@ -48,6 +49,8 @@ router.post("/create_cooperate", create_cooperate, (req, res) => {
 });
 
 router.get("/get_list_products", get_list_products);
+
+router.get("/send_email_user", send_email);
 router.use((data, req, res, next) => {
   res.send(data);
 });

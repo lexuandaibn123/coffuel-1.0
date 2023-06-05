@@ -50,7 +50,6 @@ const CompareAccount = async (req, res) => {
   );
   if (results.length > 0) {
     if (results[0].user_password == req.body.user_password) {
-      console.log(req.body.user_name);
       let token = convert_next(req.body.user_name);
       token = token.toString();
       let obj = { state: "OK", cookie: token };

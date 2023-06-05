@@ -3,7 +3,7 @@ import { convert_back } from "../services/JWT.js";
 dotenv.config();
 
 const check_admin = async (req, res, next) => {
-  let cookie = req.cookies.techstart_coffuel;
+  let cookie = req.cookies.admin_techstart_coffuel;
   if (!cookie) {
     res.redirect("/admin");
   } else {
