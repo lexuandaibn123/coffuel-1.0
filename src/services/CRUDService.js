@@ -75,6 +75,11 @@ const checkUser = async (text) => {
   }
 };
 
+const getMail = async () => {
+  const [results, fields] = await pool.query("SELECT * FROM Mails");
+  return results.mail;
+};
+
 export {
   getAllUsers,
   getUser,
@@ -84,4 +89,5 @@ export {
   checkAccount,
   checkUser,
   CompareAccount,
+  getMail,
 };

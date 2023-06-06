@@ -10,31 +10,20 @@
   </head>
   <body>
     <input type="hidden" id="mode" value="<%= mode %>" />
+    <input type="hidden" id="list" value="<%= JSON.stringify(list) %>" />
     <div class="navbar">
-      <div class="navbar_item">Mua vật phẩm</div>
-      <div class="navbar_item">Bán vật phẩm</div>
+      <span id="ba_gach">☰</span>
+      <div class="navbar_container">
+        <span id="cancel_navbar_container">X</span>
+        <div class="navbar_item">Mua vật phẩm</div>
+        <hr id="hr_buy" />
+        <div class="navbar_item">Bán vật phẩm</div>
+        <hr id="hr_sale" />
+        <button id="back_button"><span>BACK HOME</span></button>
+      </div>
+      <img src="/images/Logo tách nền.png" id="logo" />
     </div>
-    <button id="back_button"><span>BACK HOME</span></button>
-    <table>
-      <tr>
-        <th class="user_name">Họ và tên</th>
-        <th class="user_address">Địa chỉ</th>
-        <th class="user_product">Sản phẩm</th>
-        <th class="user_quantity">Số lượng</th>
-        <th class="user_tel">Số điện thoại</th>
-        <th class="user_state">Trạng thái</th>
-      </tr>
-      <% for(let i = 0; i < list.length; i++) { %>
-      <tr>
-        <td><%= list[i].user_fullname %></td>
-        <td><%= list[i].user_address %></td>
-        <td><%= list[i].user_product %></td>
-        <td><%= list[i].user_quantity %></td>
-        <td><%= list[i].user_tel %></td>
-        <td><%= list[i].user_state %></td>
-      </tr>
-      <% } %>
-    </table>
+    <div class="div_list_item"></div>
     <script src="/javascript/cart.js"></script>
   </body>
 </html>

@@ -36,4 +36,18 @@ const User_Product = async (text) => {
   if (results.length == 0) return "Không có kết quả";
   else return results;
 };
-export { AddProduct, getAllProducts, User_Product };
+const Confirm_Product = async (id) => {
+  const [results, fields] = await pool.query(
+    `select * from Products where id=${id}`
+  );
+  if (results[0].user_state == "chưa xác nhận") {
+    const [results, fields] = await pool.query(
+      `UPDATE Products SET user_state="đã xác nhận" where id=${id}`
+    );
+  } else {
+    const [results, fields] = await pool.query(
+      `UPDATE Products SET user_state="chưa xác nhận" where id=${id}`
+    );
+  }
+};
+export { AddProduct, getAllProducts, User_Product, Confirm_Product };

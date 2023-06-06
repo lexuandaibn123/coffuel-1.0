@@ -1,8 +1,10 @@
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import { getMail } from "./CRUDService.js";
 dotenv.config();
 
-const send_mail_auto = (mail_user, text) => {
+const send_mail_auto = async (mail_user) => {
+  let text = await getMail();
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {

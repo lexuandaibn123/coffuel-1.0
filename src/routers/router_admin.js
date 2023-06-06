@@ -7,6 +7,8 @@ import { update_user_id, update_user } from "../models/update_user.js";
 import { delete_user_id, delete_user } from "../models/delete_user.js";
 import { checkAccount } from "../services/CRUDService.js";
 import { read_product } from "../models/read_product.js";
+import { confirm_product } from "../models/confirm_product.js";
+import { create_product } from "../models/create_product.js";
 import {
   chat_realtime_admin,
   chat_with_user,
@@ -46,6 +48,19 @@ router_admin.post("/create_database", check_admin, create_user, (req, res) => {
   res.redirect("/admin/read_database_user");
 });
 
+router_admin.get("/create_database_product", check_admin, (req, res) => {
+  res.render("create_database_product");
+});
+
+router_admin.post(
+  "/create_database_product",
+  check_admin,
+  create_product,
+  (req, res) => {
+    res.redirect("/admin/read_database_product");
+  }
+);
+router_admin.get("/confirm_database_product/:id", check_admin, confirm_product);
 router_admin.post("/check_username", checkAccount);
 
 router_admin.get("/chat", check_admin, chat_realtime_admin);

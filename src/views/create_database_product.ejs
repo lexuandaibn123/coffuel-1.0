@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create DataBase Product</title>
+    <link rel="stylesheet" href="/css/create_database_product.css " />
+    <link rel="icon" href="/images/Logo Coffuel xanh.png" />
+  </head>
+  <body>
+    <fieldset>
+      <legend>Add account</legend>
+      <form method="post" action="/admin/create_database_product" id="form">
+        <input
+          type="text"
+          placeholder="Tên tài khoản"
+          id="user_name"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Họ và tên"
+          required
+          name="user_fullname"
+          autocomplete="off"
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Địa chỉ"
+          required
+          name="user_address"
+          autocomplete="off"
+        />
+        <input
+          list="product"
+          placeholder="Sản phẩm"
+          required
+          name="user_product"
+        />
+        <datalist id="product">
+          <option value="Viên nén cà phê(kg)"></option>
+          <option value="Viên nén sinh khối(túi)"></option>
+          <option value="Đồ lưu niệm(đang nghiên cứu)"></option>
+          <option value="Vải từ bã cà phê(đang nghiên cứu)"></option>
+          <option value="Đồ dùng từ bã cà phê(đang nghiên cứu)"></option>
+          <option value="Dầu diesel(đang nghiên cứu)"></option>
+        </datalist>
+        <br />
+        <input
+          type="number"
+          placeholder="Số lượng"
+          required
+          name="user_quantity"
+          autocomplete="off"
+        />
+        <input
+          type="tel"
+          placeholder="Số điện thoại"
+          required
+          name="user_tel"
+          autocomplete="off"
+        />
+        <br />
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          name="user_email"
+          autocomplete="off"
+        />
+        <p id="message"></p>
+        <div class="button">
+          <button id="checkinput" type="button">Check_Input</button>
+          <button id="button_add">Gửi</button>
+        </div>
+      </form>
+    </fieldset>
+    <script type="module" src="/javascript/create_database_product.js"></script>
+  </body>
+</html>
