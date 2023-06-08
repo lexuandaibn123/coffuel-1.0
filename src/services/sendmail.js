@@ -4,7 +4,7 @@ import { getMail } from "./CRUDService.js";
 dotenv.config();
 
 const send_mail_auto = async (mail_user) => {
-  let text = await getMail();
+  let obj = await getMail();
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -16,8 +16,8 @@ const send_mail_auto = async (mail_user) => {
   const mailOption = {
     from: process.env.MAIL_ADMIN,
     to: mail_user,
-    subject: "This email comes from team cofffuel",
-    text: text,
+    subject: obj[0].subject,
+    html: obj[0].mail,
   };
 
   transporter.sendMail(mailOption, (err, info) => {

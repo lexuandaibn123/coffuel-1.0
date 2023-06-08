@@ -1,3 +1,7 @@
+#content_chat {
+  height: 80vh !important;
+  overflow: auto;
+}
 .p_chat_user,
 .p_chat_admin {
   width: 20%;

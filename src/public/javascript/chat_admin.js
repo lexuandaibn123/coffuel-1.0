@@ -15,6 +15,7 @@ socket.on("text_chat", (mess) => {
     p.classList.add("p_chat_admin");
   }
   content_chat.appendChild(p);
+  content_chat.scrollTop = content_chat.scrollHeight;
 });
 
 form_chat.addEventListener("submit", (e) => {

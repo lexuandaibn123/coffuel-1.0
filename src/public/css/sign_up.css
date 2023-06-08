@@ -207,11 +207,11 @@ button:hover {
   }
   #message {
     left: 3vw;
-    top: 15.5vh;
+    top: 21vh;
   }
   #message_password {
     left: 3vw;
-    top: 21.5vh;
+    top: 26.5vh;
   }
   .header {
     display: block;

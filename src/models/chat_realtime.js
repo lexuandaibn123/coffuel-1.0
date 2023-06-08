@@ -22,13 +22,21 @@ const chat_realtime = () => {
       let room = await convert_back(obj.room);
       await appendMessages(room, "User:" + obj.message);
       count_new_message(room);
-      io.to(room).emit("text_chat", { message: obj.message, user: true });
+      io.to(room).emit("text_chat", {
+        message: obj.message,
+        user: true,
+        state: "post",
+      });
     });
 
     // sự kiện admin chat
     socket.on("text_chat_admin", async (obj) => {
       await appendMessages(obj.room, "Admin:" + obj.message);
-      io.to(obj.room).emit("text_chat", { message: obj.message, user: false });
+      io.to(obj.room).emit("text_chat", {
+        message: obj.message,
+        user: false,
+        state: "post",
+      });
     });
 
     // sự kiện lấy count_message và reset của admin
@@ -61,11 +69,13 @@ const chat_realtime = () => {
           io.to(user_name + "get_data").emit("text_chat", {
             message: e.slice(5),
             user: true,
+            state: "get",
           });
         if (e.split(":")[0] == "Admin")
           io.to(user_name + "get_data").emit("text_chat", {
             message: e.slice(6),
             user: false,
+            state: "get",
           });
       });
       socket.leave(user_name + "get_data");

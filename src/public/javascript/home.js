@@ -274,7 +274,6 @@ icon_chat.addEventListener("click", () => {
     div_chat.style.border = "2px solid black";
     let arr2 = arr[i].trim();
     let user_name = arr2.split("=");
-    console.log(content_chat.toString());
     if (!content_chat.firstElementChild) socket.emit("join_room", user_name[1]);
     window.addEventListener("unload", (e) => {
       socket.emit("clean_data", user_name[1]);
@@ -283,15 +282,23 @@ icon_chat.addEventListener("click", () => {
 });
 
 socket.on("text_chat", (mess) => {
+  const chat_bot_text = document.getElementById("chat_bot");
+  if (chat_bot_text) content_chat.removeChild(chat_bot_text);
   const p = document.createElement("p");
   if (mess.user == true) {
-    p.textContent = "User: " + mess.message;
+    p.textContent = mess.message;
     p.classList.add("p_chat_user");
   } else {
-    p.textContent = "Admin: " + mess.message;
+    p.textContent = mess.message;
     p.classList.add("p_chat_admin");
   }
   content_chat.appendChild(p);
+  if (mess.state == "post" && mess.user == true) {
+    const chat_bot = document.createElement("p");
+    chat_bot.id = "chat_bot";
+    chat_bot.textContent = "Tin nhắn đã gửi vui lòng chờ admin trả lời";
+    content_chat.appendChild(chat_bot);
+  }
   content_chat.scrollTop = content_chat.scrollHeight; // luôn hiện tin nhắn cuối
 });
 

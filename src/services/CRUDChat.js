@@ -12,7 +12,8 @@ const getMessages = async (user_name) => {
 
 const saveMessages = async (user_name, user_message) => {
   const [results, fields] = await pool.query(
-    `UPDATE Chats SET user_message='${user_message}' where user_name='${user_name}'`
+    "UPDATE Chats SET user_message=? where user_name=?",
+    [user_message, user_name]
   );
 };
 
