@@ -19,4 +19,4 @@ services:
       - DB_HOST=db-users
     ports:
       - 80:80
-# docker-compose -p coffuel-techstart up -d
+# docker compose -p coffuel-techstart up -d
