@@ -10,28 +10,34 @@
   </head>
   <body>
     <div class="banner">
-      <h3 class="h3_header">
+      <div id="convert_language">
+        <img src="/images/co_vietnam.png" id="flag" />
+        <span id="text_language">VI</span>
+      </div>
+      <h3 class="h3_header" data-i18n="h3_header_product">
         Quý khách có thể đặt mua sản phẩm của chúng tôi dưới đây
       </h3>
       <div class="content">
-        <p class="under_header">
+        <p class="under_header" data-i18n="under_header_product">
           Chúng tôi giao hàng trong khu vực nội thành suốt thời gian mở cửa
         </p>
-        <p class="free">
+        <p class="free" data-i18n="free_product">
           Miễn phí ship áp dụng cho đơn hàng trong bán kính 3 km
         </p>
-        <p class="title_form">Đặt mua sản phẩm online:</p>
+        <p class="title_form" data-i18n="title_form_product">
+          Đặt mua sản phẩm online:
+        </p>
         <form class="form" method="post" action="/create_product">
           <input
             type="text"
-            placeholder="Họ và tên"
+            placeholder="Họ và tên/Full Name"
             required
             name="user_fullname"
             autocomplete="off"
           />
           <input
             type="text"
-            placeholder="Địa chỉ"
+            placeholder="Địa chỉ/Address"
             required
             name="user_address"
             autocomplete="off"
@@ -39,11 +45,11 @@
           <br />
           <input
             list="product"
-            placeholder="Sản phẩm"
+            placeholder="Sản phẩm/Product"
             required
             name="user_product"
           />
-          <datalist id="product">
+          <datalist id="product" data-i18n="datalist">
             <option value="Viên nén cà phê(kg)"></option>
             <option value="Viên nén sinh khối(túi)"></option>
             <option value="Đồ lưu niệm(đang nghiên cứu)"></option>
@@ -53,7 +59,7 @@
           </datalist>
           <input
             type="number"
-            placeholder="Số lượng"
+            placeholder="Số lượng/Quantity"
             required
             name="user_quantity"
             autocomplete="off"
@@ -61,7 +67,7 @@
           <br />
           <input
             type="tel"
-            placeholder="Số điện thoại"
+            placeholder="Số điện thoại/Telephone"
             required
             name="user_tel"
             autocomplete="off"
@@ -74,9 +80,61 @@
             autocomplete="off"
           />
           <br />
-          <button>Đặt hàng</button>
+          <button data-i18n="Oder">Đặt hàng</button>
         </form>
       </div>
     </div>
+    <script>
+      // xử lý đa ngôn ngữ
+      document.cookie = "language=vi";
+      let languageStrings = {};
+      const convert_language = document.getElementById("convert_language");
+      const flag = document.getElementById("flag");
+      const text_language = document.getElementById("text_language");
+      function loadLanguage(languageCode) {
+        // Tải tệp ngôn ngữ dựa trên mã ngôn ngữ
+        const fileUrl = languageCode + ".json";
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", fileUrl, false);
+        xhr.onreadystatechange = async function () {
+          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // Tệp ngôn ngữ đã được tải thành công
+            const languageData = JSON.parse(xhr.responseText);
+            languageStrings[languageCode] = languageData;
+          }
+        };
+        xhr.send();
+      }
+      function switchLanguage(languageCode) {
+        // Kiểm tra xem ngôn ngữ đã được tải chưa
+        if (languageCode in languageStrings) {
+          const elements = document.querySelectorAll("[data-i18n]");
+          for (let i = 0; i < elements.length; i++) {
+            const element = elements[i];
+            const key = element.getAttribute("data-i18n");
+            // Thay thế văn bản hiện tại bằng chuỗi ngôn ngữ mới
+            element.innerHTML = languageStrings[languageCode][key];
+          }
+        } else {
+          // Tải ngôn ngữ nếu chưa được tải
+          loadLanguage(languageCode);
+        }
+      }
+      convert_language.addEventListener("click", () => {
+        if (!document.cookie.includes("language=vi")) {
+          document.cookie = "language=vi";
+          text_language.textContent = "VI";
+          flag.src = "/images/co_vietnam.png";
+          switchLanguage("vi");
+        } else {
+          document.cookie = "language=en";
+          text_language.textContent = "EN";
+          flag.src = "/images/co_anh.jpg";
+          switchLanguage("en");
+        }
+      });
+      loadLanguage("vi");
+      loadLanguage("en");
+    </script>
   </body>
 </html>

@@ -18,6 +18,22 @@ body {
   padding-left: 2vw;
   padding-right: 2vw;
 }
+#convert_language {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+  position: absolute;
+  top: 1.5vw;
+  right: 3vw;
+  z-index: 15;
+  color: black;
+}
+#flag {
+  width: 3.2vh;
+  border-radius: 100%;
+  margin-right: 0.3vw;
+}
 .h3_header {
   font-size: 5vh;
 }
@@ -67,7 +83,8 @@ p {
     margin-top: 15vh;
   }
   .h3_header {
-    margin-top: 2%;
+    margin-top: 15%;
+    font-size: 4vh;
   }
   .content {
     margin: 0;
@@ -80,5 +97,13 @@ p {
   button {
     width: 30%;
     margin-top: 2%;
+  }
+  #convert_language {
+    top: 2vh;
+    left: 5vw;
+  }
+  #flag {
+    width: 3.5vh;
+    margin-right: 0.7vh;
   }
 }

@@ -7,7 +7,7 @@
     <title>Sign up</title>
     <link rel="stylesheet" href="/css/sign_up.css" />
     <link rel="icon" href="/images/Logo Coffuel xanh.png" />
-     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@1,300;1,400&display=swap"
@@ -22,6 +22,10 @@
   <body>
     <div class="banner">
       <img src="/images/logo_tach_nen_den.png" class="logo_phone" />
+      <div id="convert_language">
+        <img src="/images/co_vietnam.png" id="flag" />
+        <span id="text_language">VI</span>
+      </div>
       <div class="header">
         <h2>Sign Up</h2>
         <p><a href="/">Home</a> &ensp;> &ensp;Sign up</p>
@@ -36,7 +40,7 @@
             id="user_name"
             class="input"
             pattern="[A-Za-z0-9@]{1,20}"
-            placeholder="Tên tài khoản"
+            placeholder="Tên tài khoản/User name"
           />
           <br />
           <p id="message_password"></p>
@@ -47,7 +51,7 @@
             id="user_password"
             class="input"
             pattern="[A-Za-z0-9@]{1,20}"
-            placeholder="Mật khẩu"
+            placeholder="Mật khẩu/Password"
           />
           <br />
           <input
@@ -56,7 +60,7 @@
             required
             id="user_password_again"
             class="input"
-            placeholder="Nhập lại mật khẩu"
+            placeholder="Nhập lại mật khẩu/Password again"
           />
           <br />
           <input
@@ -74,12 +78,12 @@
             required
             id="user_tel"
             class="input"
-            placeholder="Số điện thoại"
+            placeholder="Số điện thoại/Telephone"
           />
           <br />
           <div class="button_sign_up">
             <button id="check" type="button">Check</button>
-            <button id="sign_up">Đăng ký</button>
+            <button id="sign_up" data-i18n="Sign_up">Đăng ký</button>
           </div>
         </form>
       </div>
@@ -96,10 +100,10 @@
             required
             placeholder="Email nhận thông tin"
           />
-          <button id="send_email">Gửi</button>
+          <button id="send_email" data-i18n="Send">Gửi</button>
         </div>
       </div>
-      <div class="information information_3">
+      <div class="information information_3" data-i18n="contact">
         <h2>
           LIÊN HỆ VỚI TRỤ SỞ &ensp;
           <a
@@ -113,12 +117,14 @@
         <h3>COFFUEL</h3>
         <h4>Địa chỉ: Đại học Bách Khoa Hà Nội</h4>
         <h4>
-          Anh Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
-          <br />Điện thoại: 0866 869 318
+          Mr Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
+          <br />
+          Điện thoại: 0866 869 318
         </h4>
         <h4>
-          Chị Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
-          <br />Điện thoại: 0396 531 013
+          Mrs Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
+          <br />
+          Điện thoại: 0396 531 013
         </h4>
       </div>
     </div>

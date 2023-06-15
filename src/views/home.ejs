@@ -27,7 +27,7 @@
     <div class="banner" id="b1">
       <div class="navbar navbar_animation" id="navbar">
         <span id="ba_gach">☰</span>
-        <div class="content_navbar">
+        <div class="content_navbar" data-i18n="content_navbar">
           <span id="cancel_content_navbar">X</span>
           <a class="element_navbar" href="#b1"
             >TRANG CHỦ
@@ -55,9 +55,27 @@
           /></a>
         </div>
         <div class="log_navbar">
-          <a class="element_navbar" id="sign_in" href="/sign_in">Đăng nhập</a>
-          <a class="element_navbar" id="sign_up" href="/sign_up">Đăng ký</a>
-          <a class="element_navbar" id="sign_out">Đăng xuất</a>
+          <div id="convert_language">
+            <img src="/images/co_vietnam.png" id="flag" />
+            <span id="text_language">VI</span>
+          </div>
+          <a
+            class="element_navbar"
+            id="sign_in"
+            href="/sign_in"
+            data-i18n="Sign_in"
+            >Đăng nhập</a
+          >
+          <a
+            class="element_navbar"
+            id="sign_up"
+            href="/sign_up"
+            data-i18n="Sign_up"
+            >Đăng ký</a
+          >
+          <a class="element_navbar" id="sign_out" data-i18n="Sign_out"
+            >Đăng xuất</a
+          >
         </div>
         <input id="state" value="<%=message%>" type="hidden" />
       </div>
@@ -69,11 +87,11 @@
             type="text"
             id="chat"
             name="text_chat"
-            placeholder="Nhập văn bản ..."
+            placeholder="Nhập văn bản .../Text ..."
             required
             autocomplete="off"
           />
-          <button>Gửi</button>
+          <button data-i18n="Send">Gửi</button>
         </form>
       </div>
       <img src="/images/icon_chat.png" id="icon_chat" />
@@ -82,35 +100,43 @@
         <hr class="hr1" />
         <div class="content1">REDUCE THE WASTES, CREATE THE WAYS</div>
         <hr class="hr2" />
-        <div class="content1_footer">VIÊN NÉN NĂNG LƯỢNG TÁI TẠO</div>
+        <div class="content1_footer" data-i18n="content1_footer">
+          VIÊN NÉN NĂNG LƯỢNG TÁI TẠO
+        </div>
         <div class="footer">
-          <button class="item_footer">SẢN PHẨM</button
-          ><button class="item_footer">HỢP TÁC</button
-          ><button class="item_footer">GIỎ HÀNG</button>
+          <button class="item_footer" data-i18n="Product">SẢN PHẨM</button
+          ><button class="item_footer" data-i18n="Cooperate">HỢP TÁC</button
+          ><button class="item_footer" data-i18n="Cart">GIỎ HÀNG</button>
         </div>
       </div>
     </div>
     <div id="b2" class="banner">
       <div class="div_item2">
         <img src="/images/hieu_suat.jpg" class="icon_2" />
-        <h3 class="header_2">Hiệu suất vượt trội</h3>
-        <p class="content_2">
+        <h3 class="header_2" data-i18n="home_header_2_hieusuat">
+          Hiệu suất vượt trội
+        </h3>
+        <p class="content_2" data-i18n="home_content_2_hieusuat">
           Nhiệt lượng được sinh ra từ quá trình đốt viên nén bã cà phê bằng 120%
           so với viên nén gỗ truyền thống.
         </p>
       </div>
       <div class="div_item2">
         <img src="/images/giam_thieu.jpg" class="icon_2" />
-        <h3 class="header_2">Giảm tối đa lượng tro</h3>
-        <p class="content_2">
+        <h3 class="header_2" data-i18n="home_header_2_tro">
+          Giảm tối đa lượng tro
+        </h3>
+        <p class="content_2" data-i18n="home_content_2_tro">
           Lượng tro còn lại sau khi đốt giảm đến 85% so với các nhiên liệu
           truyền thống khác.
         </p>
       </div>
       <div class="div_item2">
         <img src="/images/CO2.jpg" class="icon_2" />
-        <h3 class="header_2">Giảm lượng khí thải CO2</h3>
-        <p class="content_2">
+        <h3 class="header_2" data-i18n="home_header_2_CO2">
+          Giảm lượng khí thải CO2
+        </h3>
+        <p class="content_2" data-i18n="home_content_2_CO2">
           Lượng khí thải thải ra môi trường từ quá trình đốt nhiên liệu viên nén
           cà phê giảm 90% so với than đá.
         </p>
@@ -125,7 +151,7 @@
         />
         <img src="/images/MVP AI vẽ (2).jpg" class="img_3_item2" />
       </div>
-      <div class="div_rightb3">
+      <div class="div_rightb3" data-i18n="div_rightb3">
         <h3 class="header_contentb3">Giới thiệu về chúng tôi</h3>
         <p class="contentb3" id="p3_1">
           Coffuel là một giải pháp năng lượng xanh cho cộng đồng
@@ -144,14 +170,14 @@
       <div class="div_content_4">
         <div class="content_4">
           <span id="cancel_information">X</span>
-          <p id="product_name">Tên sản phẩm:</p>
-          <p id="product_describe">Mô tả:</p>
-          <p id="product_price">Giá thành:</p>
+          <p id="product_name" data-i18n="name_product">Tên sản phẩm:</p>
+          <p id="product_describe" data-i18n="describe">Mô tả:</p>
+          <p id="product_price" data-i18n="price">Giá thành:</p>
         </div>
       </div>
 
       <div class="text_content4">
-        <h3>Bấm để xem thông tin sản phẩm</h3>
+        <h3 data-i18n="text_content4_h3">Bấm để xem thông tin sản phẩm</h3>
         <div class="show_img">
           <div class="list_img">
             <img
@@ -206,7 +232,9 @@
     </div>
     <div class="banner" id="b5">
       <div class="tong_quat">
-        <h1 class="header_b5">Quy trình tạo ra sản phẩm của Coffuel</h1>
+        <h1 class="header_b5" data-i18n="header_b5">
+          Quy trình tạo ra sản phẩm của Coffuel
+        </h1>
         <hr class="gachchan5" />
         <div class="div_content">
           <div class="content_b5">
@@ -214,9 +242,9 @@
               class="icon5"
               src="/images/kisspng-computer-icons-delivery-symbol-delivery-boy-5b1324a0a71912.0358992415279812166844.png"
             />
-            <h3 class="title_icon5">THU GOM</h3>
+            <h3 class="title_icon5" data-i18n="title_icon5_1">THU GOM</h3>
             <hr class="hr5" />
-            <p class="text_icon5">
+            <p class="text_icon5" data-i18n="text_icon5_1">
               Thu gom trực tiếp từ các doanh nghiệp sản xuất cà phê và các quán
               cà phê tại 2 tỉnh thành: Hà Nội và TP Hồ Chí Minh.
             </p>
@@ -226,9 +254,9 @@
               class="icon5"
               src="/images/kisspng-recycling-symbol-waste-plastic-recycling-5b40675b96cd93.1481662915309474196177.png"
             />
-            <h3 class="title_icon5">XỬ LÝ</h3>
+            <h3 class="title_icon5" data-i18n="title_icon5_2">XỬ LÝ</h3>
             <hr class="hr5" />
-            <p class="text_icon5">
+            <p class="text_icon5" data-i18n="text_icon5_2">
               Sử dụng công nghệ để xử lý các phụ phẩm công nghiệp và khai thác
               tối đa tiềm năng về năng lượng tái tạo.
             </p>
@@ -239,9 +267,9 @@
               src="/images/—Pngtree—receive box line icon vector_5142641.png"
             />
 
-            <h3 class="title_icon5">THÀNH PHẨM</h3>
+            <h3 class="title_icon5" data-i18n="title_icon5_3">THÀNH PHẨM</h3>
             <hr class="hr5" />
-            <p class="text_icon5">
+            <p class="text_icon5" data-i18n="text_icon5_3">
               Hoàn thiện và cung cấp phẩm viên nén sinh khối từ bã cà phê đến
               các doanh nghiệp sử dụng lò hơi công nghiệp.
             </p>
@@ -258,7 +286,9 @@
       <div class="information information_1">
         <img src="/images/Logo tách nền.png" class="logo_b6" />
         <h3 class="coffuel_b6">Coffuel</h3>
-        <h2 class="information_details">Thông tin chi tiết</h2>
+        <h2 class="information_details" data-i18n="Information_details">
+          Thông tin chi tiết
+        </h2>
         <div class="send_email">
           <input
             type="email"
@@ -266,22 +296,22 @@
             required
             placeholder="Email nhận thông tin"
           />
-          <button id="send_email">Gửi</button>
+          <button id="send_email" data-i18n="Send">Gửi</button>
         </div>
       </div>
       <div class="information information_2">
         <h2>SITEMAP</h2>
         <hr />
         <h4>
-          <a href="#b1">TRANG CHỦ</a>
+          <a href="#b1" data-i18n="Homepage">TRANG CHỦ</a>
         </h4>
-        <h4><a href="#b2">LỢI THẾ</a></h4>
-        <h4><a href="#b3">GIỚI THIỆU</a></h4>
-        <h4><a href="#b4">SẢN PHẨM</a></h4>
-        <h4><a href="#b5">QUY TRÌNH</a></h4>
-        <h4><a href="#b6">LIÊN HỆ</a></h4>
+        <h4><a href="#b2" data-i18n="Benefit">LỢI THẾ</a></h4>
+        <h4><a href="#b3" data-i18n="Introduction">GIỚI THIỆU</a></h4>
+        <h4><a href="#b4" data-i18n="Product">SẢN PHẨM</a></h4>
+        <h4><a href="#b5" data-i18n="Process">QUY TRÌNH</a></h4>
+        <h4><a href="#b6" data-i18n="Contact">LIÊN HỆ</a></h4>
       </div>
-      <div class="information information_3">
+      <div class="information information_3" data-i18n="contact">
         <h2>
           LIÊN HỆ VỚI TRỤ SỞ &ensp;
           <a
@@ -295,12 +325,14 @@
         <h3>COFFUEL</h3>
         <h4>Địa chỉ: Đại học Bách Khoa Hà Nội</h4>
         <h4>
-          Anh Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
-          <br />Điện thoại: 0866 869 318
+          Mr Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
+          <br />
+          Điện thoại: 0866 869 318
         </h4>
         <h4>
-          Chị Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
-          <br />Điện thoại: 0396 531 013
+          Mrs Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
+          <br />
+          Điện thoại: 0396 531 013
         </h4>
       </div>
     </div>

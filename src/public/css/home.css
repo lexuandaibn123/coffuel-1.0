@@ -15,6 +15,7 @@ a {
 }
 a:hover {
   color: red;
+  transition: 0.8s;
 }
 #b1 {
   background-image: url("../images/Ảnh\ quảng\ cáo\ xinh\ xinh\ \(2\).jpg");
@@ -206,15 +207,32 @@ a:hover {
     margin-right: 1.5vw;
     margin-top: 1vw;
     font-size: 5vw;
-    padding: 1vw 0 1vw 0;
+    padding: 0.2vh 0 0.2vh 0;
   }
   #sign_out {
     margin-top: 2vh;
+  }
+  #convert_language {
+    top: 2.2vh;
+    left: -8vw;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    cursor: pointer;
+  }
+  #flag {
+    width: 3vh;
+    border-radius: 100%;
+    margin-right: 0.3vw;
   }
   #icon_chat {
     width: 12vw;
     right: 3vw;
     bottom: 3vw;
+  }
+  .hr_navbar {
+    display: none;
   }
 }
 @media only screen and (min-width: 801px) {
@@ -291,26 +309,24 @@ a:hover {
     position: absolute;
     font-size: 1.2vw;
     top: 0;
-    right: 0;
+    right: 1.2vw;
     height: 100%;
     display: flex;
     align-items: center;
   }
   .log_navbar > a {
-    padding: 0.5vw 0;
-    width: 7.5vw;
-    margin-right: 2vw;
+    padding: 0.2vw 0;
+    width: max-content;
+    margin: 0;
+    margin-left: 1vw;
   }
   #sign_out,
   #sign_in,
   #sign_up {
     display: none;
-    border: 1px solid black;
-    border-radius: 1vh;
-    background-color: rgba(255, 255, 255, 0.8);
   }
   #sign_out {
-    margin-right: 4vw;
+    margin-right: 2vw;
   }
   .element_navbar {
     position: relative;
@@ -323,6 +339,17 @@ a:hover {
     border: 0;
     left: 0;
     transition: 2s;
+  }
+  #convert_language {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    cursor: pointer;
+  }
+  #flag {
+    width: 2.5vh;
+    border-radius: 100%;
+    margin-right: 0.3vw;
   }
 }
 .section {
@@ -1007,7 +1034,7 @@ button:active {
 }
 .content_b5_animation {
   animation-name: content_b5;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-timing-function: ease-in;
 }
 @keyframes content_b5 {
@@ -1100,9 +1127,9 @@ button:active {
 .coffuel_b6 {
   position: absolute;
   font-family: "Inria Serif", serif;
-  font-size: 2vw;
+  font-size: 3vw;
   top: 10%;
-  right: 40%;
+  right: 30%;
 }
 .logo_b6 {
   width: 45%;

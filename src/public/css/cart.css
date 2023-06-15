@@ -13,7 +13,21 @@ body {
   left: 0;
   z-index: 5;
 }
-
+#convert_language {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+  position: absolute;
+  top: 1vw;
+  left: 2vw;
+  z-index: 15;
+}
+#flag {
+  width: 2.5vh;
+  border-radius: 100%;
+  margin-right: 0.3vw;
+}
 #ba_gach {
   margin-top: 2vh;
   margin-left: 2vh;
@@ -189,5 +203,12 @@ hr {
   }
   .p_state {
     margin-top: 1vw;
+  }
+  #convert_language {
+    top: 2vh;
+  }
+  #flag {
+    width: 3.5vh;
+    margin-right: 0.7vh;
   }
 }

@@ -140,17 +140,9 @@ window.addEventListener("scroll", () => {
     navbar.classList.add("navbar_start");
     navbar.classList.remove("navbar_top");
     navbar.classList.remove("navbar_animation");
-    arr.forEach((e) => {
-      e.style.borderColor = "white";
-      e.style.backgroundColor = "rgba(255, 255, 255, 0)";
-    });
   } else {
     navbar.classList.remove("navbar_start");
     navbar.classList.add("navbar_top");
-    arr.forEach((e) => {
-      e.style.borderColor = "black";
-      e.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
-    });
   }
   // if (height >= 100) {
   //   div_b3[0].classList.add("animation_b3");
@@ -196,46 +188,6 @@ window.addEventListener("scroll", () => {
       display_hr_navbar(5);
     }
   }
-});
-
-// Lấy list sản phẩm
-
-window.addEventListener("load", () => {
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function () {
-    let text = this.responseText;
-    let arr = JSON.parse(text);
-    // console.log(arr);
-    const img_item = [...document.getElementsByClassName("img_item")];
-    const product_name = document.getElementById("product_name");
-    const product_describe = document.getElementById("product_describe");
-    const product_price = document.getElementById("product_price");
-    const div_content_4 = [...document.getElementsByClassName("div_content_4")];
-    const content_4 = [...document.getElementsByClassName("content_4")];
-    const cancel_information = document.getElementById("cancel_information");
-
-    cancel_information.addEventListener("click", () => {
-      div_content_4[0].classList.remove("animation_div_content_4");
-      content_4[0].classList.remove("animation_content_4");
-    });
-    img_item.forEach((e) => {
-      e.addEventListener("click", () => {
-        div_content_4[0].classList.add("animation_div_content_4");
-        content_4[0].classList.add("animation_content_4");
-        let title = e.title;
-        for (let i = 0; i < arr.length; i++) {
-          if (arr[i].product_name == title) {
-            product_name.innerHTML = "Tên sản phẩm: " + arr[i].product_name;
-            product_describe.innerHTML = "Mô tả: " + arr[i].product_describe;
-            product_price.innerHTML = "Giá thành: " + arr[i].product_price;
-            break;
-          }
-        }
-      });
-    });
-  };
-  xhttp.open("GET", "/get_list_products");
-  xhttp.send();
 });
 
 // const span_dynamic = document.getElementById("span_dynamic");
@@ -356,4 +308,102 @@ ba_gach.onclick = () => {
 };
 cancel_content_navbar.onclick = () => {
   content_navbar.style.width = "0";
+};
+
+// xử lý đa ngôn ngữ
+document.cookie = "language=vi";
+let languageStrings = {};
+const convert_language = document.getElementById("convert_language");
+const flag = document.getElementById("flag");
+const text_language = document.getElementById("text_language");
+function loadLanguage(languageCode) {
+  // Tải tệp ngôn ngữ dựa trên mã ngôn ngữ
+  const fileUrl = languageCode + ".json";
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", fileUrl, false);
+  xhr.onreadystatechange = async function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      // Tệp ngôn ngữ đã được tải thành công
+      const languageData = JSON.parse(xhr.responseText);
+      languageStrings[languageCode] = languageData;
+    }
+  };
+  xhr.send();
+}
+function switchLanguage(languageCode) {
+  // Kiểm tra xem ngôn ngữ đã được tải chưa
+  if (languageCode in languageStrings) {
+    const elements = document.querySelectorAll("[data-i18n]");
+    for (let i = 0; i < elements.length; i++) {
+      const element = elements[i];
+      const key = element.getAttribute("data-i18n");
+      // Thay thế văn bản hiện tại bằng chuỗi ngôn ngữ mới
+      element.innerHTML = languageStrings[languageCode][key];
+    }
+  } else {
+    // Tải ngôn ngữ nếu chưa được tải
+    loadLanguage(languageCode);
+  }
+}
+convert_language.addEventListener("click", () => {
+  if (!document.cookie.includes("language=vi")) {
+    document.cookie = "language=vi";
+    text_language.textContent = "VI";
+    flag.src = "/images/co_vietnam.png";
+    switchLanguage("vi");
+  } else {
+    document.cookie = "language=en";
+    text_language.textContent = "EN";
+    flag.src = "/images/co_anh.jpg";
+    switchLanguage("en");
+  }
+  get_list_products();
+});
+loadLanguage("vi");
+loadLanguage("en");
+// Lấy list sản phẩm
+const get_list_products = () => {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    let text = this.responseText;
+    let arr = JSON.parse(text);
+    // console.log(arr);
+    const img_item = [...document.getElementsByClassName("img_item")];
+    const product_name = document.getElementById("product_name");
+    const product_describe = document.getElementById("product_describe");
+    const product_price = document.getElementById("product_price");
+    const div_content_4 = [...document.getElementsByClassName("div_content_4")];
+    const content_4 = [...document.getElementsByClassName("content_4")];
+    const cancel_information = document.getElementById("cancel_information");
+    const language_txt = document.cookie;
+    cancel_information.addEventListener("click", () => {
+      div_content_4[0].classList.remove("animation_div_content_4");
+      content_4[0].classList.remove("animation_content_4");
+    });
+    img_item.forEach((e) => {
+      e.addEventListener("click", () => {
+        div_content_4[0].classList.add("animation_div_content_4");
+        content_4[0].classList.add("animation_content_4");
+        let title = e.title;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].product == title) {
+            if (language_txt.includes("language=vi")) {
+              product_name.innerHTML = "Tên sản phẩm: " + arr[i].product_name;
+              product_describe.innerHTML = "Mô tả: " + arr[i].product_describe;
+              product_price.innerHTML = "Giá thành: " + arr[i].product_price;
+              break;
+            } else {
+              product_name.innerHTML = "Product Name: " + arr[i].product_name;
+              product_describe.innerHTML =
+                "Describe: " + arr[i].product_describe;
+              product_price.innerHTML = "Price: " + arr[i].product_price;
+              break;
+            }
+          }
+        }
+      });
+    });
+  };
+  xhttp.open("GET", "/get_list_products");
+  xhttp.send();
 };

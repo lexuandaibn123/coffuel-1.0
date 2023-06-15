@@ -12,15 +12,31 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  position: relative;
+}
+#convert_language {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+  position: absolute;
+  top: 1.5vw;
+  right: 3vw;
+  z-index: 15;
+}
+#flag {
+  width: 2.5vh;
+  border-radius: 100%;
+  margin-right: 0.3vw;
 }
 .div_form {
   background-color: aliceblue;
   height: 55vh;
-  width: 35%;
-  border-radius: 10vh;
+  width: 30%;
+  border-radius: 3vh;
   display: flex;
   z-index: 2;
-  border: 3px solid rgba(31, 31, 31, 0.8);
+  border: 3px solid rgba(55, 55, 55, 0.8);
   display: flex;
   justify-content: center;
 }
@@ -233,6 +249,13 @@ a:hover {
   }
   .logo {
     display: none;
+  }
+  #convert_language {
+    top: 2vh;
+  }
+  #flag {
+    width: 3.5vh;
+    margin-right: 0.7vh;
   }
   .div_form {
     background-color: aliceblue;

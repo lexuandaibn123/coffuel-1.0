@@ -9,6 +9,21 @@ body {
   padding-top: 18vh;
   overflow: hidden;
 }
+#convert_language {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+  position: absolute;
+  top: 1.5vw;
+  right: 3vw;
+  z-index: 15;
+}
+#flag {
+  width: 3.2vh;
+  border-radius: 100%;
+  margin-right: 0.3vw;
+}
 .logo {
   position: absolute;
   top: 2vh;
@@ -109,5 +124,12 @@ button:active {
     width: 30%;
     margin-top: 5%;
     background-color: #adfffe;
+  }
+  #convert_language {
+    top: 1vh;
+  }
+  #flag {
+    width: 3.5vh;
+    margin-right: 0.7vh;
   }
 }

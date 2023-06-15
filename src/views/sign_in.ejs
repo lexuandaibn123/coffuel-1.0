@@ -22,6 +22,10 @@
   <body>
     <div class="banner">
       <img src="/images/logo_tach_nen_den.png" class="logo_phone" />
+      <div id="convert_language">
+        <img src="/images/co_vietnam.png" id="flag" />
+        <span id="text_language">VI</span>
+      </div>
       <div class="header">
         <h2>Sign In</h2>
         <p><a href="/">Home</a> &ensp;> &ensp;Sign in</p>
@@ -36,7 +40,7 @@
             id="user_name"
             class="input"
             pattern="[A-Za-z0-9@]{1,20}"
-            placeholder="Tên tài khoản"
+            placeholder="Tên tài khoản/User name"
           />
           <br />
           <input
@@ -46,11 +50,11 @@
             id="user_password"
             class="input"
             pattern="[A-Za-z0-9@]{1,20}"
-            placeholder="Mật khẩu"
+            placeholder="Mật khẩu/Password"
           />
           <br />
-          <button>Đăng nhập</button>
-          <a href="/sign_up" class="sign_up">Đăng ký</a>
+          <button data-i18n="Sign_in" data-i18n="Sign_in">Đăng nhập</button>
+          <a href="/sign_up" class="sign_up" data-i18n="Sign_up">Đăng ký</a>
         </form>
       </div>
       <div class="footer_banner"></div>
@@ -67,10 +71,10 @@
             required
             placeholder="Email nhận thông tin"
           />
-          <button id="send_email">Gửi</button>
+          <button id="send_email" data-i18n="Send">Gửi</button>
         </div>
       </div>
-      <div class="information information_3">
+      <div class="information information_3" data-i18n="contact">
         <h2>
           LIÊN HỆ VỚI TRỤ SỞ &ensp;
           <a
@@ -84,12 +88,14 @@
         <h3>COFFUEL</h3>
         <h4>Địa chỉ: Đại học Bách Khoa Hà Nội</h4>
         <h4>
-          Anh Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
-          <br />Điện thoại: 0866 869 318
+          Mr Phạm Minh Long Hải <br />Email: phamminhlonghaihust@gmail.com
+          <br />
+          Điện thoại: 0866 869 318
         </h4>
         <h4>
-          Chị Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
-          <br />Điện thoại: 0396 531 013
+          Mrs Bùi Nguyễn Khánh Linh <br />Email: linhbnk.dynamicftu@gmail.com
+          <br />
+          Điện thoại: 0396 531 013
         </h4>
       </div>
     </div>
