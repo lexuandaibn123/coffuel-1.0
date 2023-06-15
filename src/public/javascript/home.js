@@ -311,7 +311,54 @@ cancel_content_navbar.onclick = () => {
 };
 
 // xử lý đa ngôn ngữ
+const get_list_products = () => {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    let text = this.responseText;
+    let arr = JSON.parse(text);
+    // console.log(arr);
+    const img_item = [...document.getElementsByClassName("img_item")];
+    const product_name = document.getElementById("product_name");
+    const product_describe = document.getElementById("product_describe");
+    const product_price = document.getElementById("product_price");
+    const div_content_4 = [...document.getElementsByClassName("div_content_4")];
+    const content_4 = [...document.getElementsByClassName("content_4")];
+    const cancel_information = document.getElementById("cancel_information");
+    const language_txt = document.cookie;
+    cancel_information.addEventListener("click", () => {
+      div_content_4[0].classList.remove("animation_div_content_4");
+      content_4[0].classList.remove("animation_content_4");
+    });
+    img_item.forEach((e) => {
+      e.addEventListener("click", () => {
+        div_content_4[0].classList.add("animation_div_content_4");
+        content_4[0].classList.add("animation_content_4");
+        let title = e.title;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].product == title) {
+            if (language_txt.includes("language=vi")) {
+              product_name.innerHTML = "Tên sản phẩm: " + arr[i].product_name;
+              product_describe.innerHTML = "Mô tả: " + arr[i].product_describe;
+              product_price.innerHTML = "Giá thành: " + arr[i].product_price;
+              break;
+            } else {
+              product_name.innerHTML = "Product Name: " + arr[i].product_name;
+              product_describe.innerHTML =
+                "Describe: " + arr[i].product_describe;
+              product_price.innerHTML = "Price: " + arr[i].product_price;
+              break;
+            }
+          }
+        }
+      });
+    });
+  };
+  xhttp.open("GET", "/get_list_products");
+  xhttp.send();
+};
+
 document.cookie = "language=vi";
+get_list_products();
 let languageStrings = {};
 const convert_language = document.getElementById("convert_language");
 const flag = document.getElementById("flag");
@@ -362,48 +409,3 @@ convert_language.addEventListener("click", () => {
 loadLanguage("vi");
 loadLanguage("en");
 // Lấy list sản phẩm
-const get_list_products = () => {
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function () {
-    let text = this.responseText;
-    let arr = JSON.parse(text);
-    // console.log(arr);
-    const img_item = [...document.getElementsByClassName("img_item")];
-    const product_name = document.getElementById("product_name");
-    const product_describe = document.getElementById("product_describe");
-    const product_price = document.getElementById("product_price");
-    const div_content_4 = [...document.getElementsByClassName("div_content_4")];
-    const content_4 = [...document.getElementsByClassName("content_4")];
-    const cancel_information = document.getElementById("cancel_information");
-    const language_txt = document.cookie;
-    cancel_information.addEventListener("click", () => {
-      div_content_4[0].classList.remove("animation_div_content_4");
-      content_4[0].classList.remove("animation_content_4");
-    });
-    img_item.forEach((e) => {
-      e.addEventListener("click", () => {
-        div_content_4[0].classList.add("animation_div_content_4");
-        content_4[0].classList.add("animation_content_4");
-        let title = e.title;
-        for (let i = 0; i < arr.length; i++) {
-          if (arr[i].product == title) {
-            if (language_txt.includes("language=vi")) {
-              product_name.innerHTML = "Tên sản phẩm: " + arr[i].product_name;
-              product_describe.innerHTML = "Mô tả: " + arr[i].product_describe;
-              product_price.innerHTML = "Giá thành: " + arr[i].product_price;
-              break;
-            } else {
-              product_name.innerHTML = "Product Name: " + arr[i].product_name;
-              product_describe.innerHTML =
-                "Describe: " + arr[i].product_describe;
-              product_price.innerHTML = "Price: " + arr[i].product_price;
-              break;
-            }
-          }
-        }
-      });
-    });
-  };
-  xhttp.open("GET", "/get_list_products");
-  xhttp.send();
-};
