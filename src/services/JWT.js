@@ -15,5 +15,4 @@ const convert_back = (token) => {
   } else data = jwt.verify(token, process.env.SECRET);
   return data;
 };
-
 export { convert_next, convert_back };

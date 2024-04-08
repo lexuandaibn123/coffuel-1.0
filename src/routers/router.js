@@ -26,17 +26,17 @@ router.post("/create_user", create_user, (req, res) => {
   res.send("200");
 });
 
-router.get("/product", check_signin, (req, res) => {
+router.get("/product", (req, res) => {
   res.render("product");
 });
 
-router.get("/cooperate", check_signin, (req, res) => {
+router.get("/cooperate", (req, res) => {
   res.render("cooperate");
 });
 
-router.get("/cart_product", check_signin, watch_cart_product);
+router.get("/cart_product", watch_cart_product);
 
-router.get("/cart_cooperate", check_signin, watch_cart_cooperate);
+router.get("/cart_cooperate", watch_cart_cooperate);
 
 router.post("/compare_user", CompareAccount);
 
